@@ -25,23 +25,19 @@ class ChartChoose extends StatelessWidget {
                     child: const Text("Choose a chart",style: TextStyle(color: Colors.black,fontSize: 35, fontWeight: FontWeight.w800),),
                     ),
         
-              const SizedBox(// give extra space between widget
+              const SizedBox(// give extra space between widgets
                 height: 20,
               ),
 
-              GestureDetector(
-                onTap: (){},
-                child: const ChartChooseButton(name: "Laboratory chart")// create object from class ChartChooseButton for choose chart
-                ),
+              //TODO add correct chart screen after creating chart input screens
+
+              const ChartChooseButton(name: "Laboratory Chart", moveScreen: ChartChoose(),), // create object from class ChartChooseButton for choose chart
                 
-              const SizedBox( // give extra space between widget
+              const SizedBox( // give extra space between widgets
                 height: 20,
               ),
 
-              GestureDetector(
-                onTap: (){},
-                child: const ChartChooseButton(name: "Non Laboratory chart")// create object from class ChartChooseButton for choose chart
-                ),
+              const ChartChooseButton(name: "Non Laboratory Chart", moveScreen: ChartChoose(),), // create object from class ChartChooseButton for choose chart
            
             ],
           ),
@@ -57,15 +53,27 @@ class ChartChoose extends StatelessWidget {
 
 // class for chart choosen button
 class ChartChooseButton extends StatelessWidget {
-  final String name;
-  const ChartChooseButton({super.key, required this.name});
+  final Widget moveScreen; // type of chart screen
+  final String name; // display name for button 
+  const ChartChooseButton({super.key, required this.name, required this.moveScreen});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 280,
-      padding: const EdgeInsets.all(20), // padding for all angles
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.red),
-      child: Center(child: Text(name,style: const TextStyle(color: Colors.white,fontSize: 24),)),
+    return ElevatedButton(
+      onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder:(_){ // path to move next screen
+            return moveScreen;
+          }));
+      },
+      style: ElevatedButton.styleFrom( // customized the button 
+        backgroundColor: Colors.red,
+        padding: const EdgeInsets.all(15),
+        fixedSize: const Size(280, 70), // chnage width and height 
+        ),
+      child: Text(name,
+        style: const TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.normal),
+        ),
+
     );
   }
 }
+
