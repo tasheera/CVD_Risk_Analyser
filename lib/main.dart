@@ -1,3 +1,4 @@
+import 'package:cvd_risk_analyser/doctor_data_input_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "CVD Risk Analyser",
+      home: DoctorInputScreen(),
+    );
   }
 }
