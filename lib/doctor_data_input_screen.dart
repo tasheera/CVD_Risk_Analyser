@@ -34,6 +34,48 @@ class _DoctorInputScreenState extends State<DoctorInputScreen> {
           ),
 
       ),
+
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Center(
+            child: Container(    
+              width: iconSize*11,
+              height: iconSize*4.5,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(36),
+              color: const Color(0xFFD80032),
+              ),
+              
+              child: Row(
+                 //mainAxisAlignment: MainAxisAlignment., // distribute free space
+                 children: [
+                  
+                  Image.asset( // doctor icon
+                    'assets/data_input_doctomerImage_icon.png', //image file direct
+                    width: iconSize*3.8,// adjust width of image using current screen width
+                    height: iconSize*3.8, // height of image
+                  ),
+
+
+
+                  Text(
+                    "Dr name\n possition and hospital",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: iconSize*0.57,
+                    ),
+                  ),
+          
+                ],
+
+              ),
+            ),
+            
+          ),
+
+        ],
+      ),
     );
   }
 }
