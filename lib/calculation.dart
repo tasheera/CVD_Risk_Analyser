@@ -170,12 +170,78 @@ main() {
         print("BROWN");
       }
 
-      //box11
+      //box12
 
+      else if ((60 >= inputA && inputA <= 64) && (BMI <= 24) && (120 < SBP)) {
+        print("yellow");
+      } else if ((60 >= inputA && inputA <= 64) && (BMI > 24) && (120 < SBP)) {
+        print("orange");
+      } else if ((60 >= inputA && inputA <= 64) &&
+          (BMI > 24 && BMI <= 24) &&
+          (120 <= SBP && SBP <= 139)) {
+        print("orange");
+      } else if ((60 >= inputA && inputA <= 64) &&
+          (BMI < 35) &&
+          (140 <= SBP && SBP <= 159)) {
+        print("orange");
+      } else if ((60 >= inputA && inputA <= 64) &&
+          (BMI >= 35) &&
+          (140 <= SBP && SBP <= 159)) {
+        print("red");
+      } else if ((60 >= inputA && inputA <= 64) &&
+          (BMI < 20) &&
+          (160 <= SBP && SBP <= 179)) {
+        print("orange");
+      } else if ((60 >= inputA && inputA <= 64) &&
+          (BMI >= 20) &&
+          (160 <= SBP && SBP <= 179)) {
+        print("red");
+      } else if ((60 >= inputA && inputA <= 64) &&
+          (BMI <= 29) &&
+          (180 <= SBP)) {
+        print("red");
+      } else if ((60 >= inputA && inputA <= 64) &&
+          (BMI >= 29) &&
+          (180 <= SBP)) {
+        print("brown");
+      }
+      //box 13
 
-
-
-      
+      else if ((65 >= inputA && inputA <= 69) &&
+          (BMI >= 29 && BMI < 29) &&
+          (120 > SBP)) {
+        print("orange");
+      } else if ((65 >= inputA && inputA <= 69) &&
+          (BMI < 35) &&
+          (120 <= SBP && SBP <= 139)) {
+        print("orange");
+      } else if ((65 >= inputA && inputA <= 69) &&
+          (BMI >= 35) &&
+          (120 <= SBP && SBP <= 139)) {
+        print("red");
+      } else if ((65 >= inputA && inputA <= 69) &&
+          (BMI <= 24) &&
+          (140 <= SBP && SBP <= 159)) {
+        print("orange");
+      } else if ((65 >= inputA && inputA <= 69) &&
+          (BMI >= 25) &&
+          (140 <= SBP && SBP <= 159)) {
+        print("red");
+      } else if ((65 >= inputA && inputA <= 69) &&
+          (BMI < 35) &&
+          (160 <= SBP && SBP <= 179)) {
+        print("red");
+      } else if ((65 >= inputA && inputA <= 69) &&
+          (BMI >= 35) &&
+          (160 <= SBP && SBP <= 179)) {
+        print("brown");
+      } else if ((65 >= inputA && inputA <= 69) && (BMI < 20) && (180 <= SBP)) {
+        print("red");
+      } else if ((65 >= inputA && inputA <= 69) &&
+          (BMI >= 20) &&
+          (180 <= SBP)) {
+        print("browan");
+      }
     } else {
       //nonsmoke
 
