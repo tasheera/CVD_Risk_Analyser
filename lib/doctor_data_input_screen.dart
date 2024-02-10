@@ -18,8 +18,10 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
   final TextEditingController _heightCVDController = TextEditingController();// controller for height text field
   final TextEditingController _weightCVDController = TextEditingController();// controller for weight field
 
+  Text previousResult=Text("No Previous Result available",textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontSize: 17 ),);
+
 // create function for return text filed with parameters
-  Widget _buildRiskInputField(String fieldName, validationFunction, error, keyboardType, controller){
+  Widget _buildRiskInputField(String fieldName, validationFunction, String error, TextInputType keyboardType, TextEditingController controller){
     fieldName=fieldName; // assign parameter to local variable
     error=error; // assign parameter to local variable
     
@@ -32,7 +34,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         boxShadow: [
           BoxShadow(
             color: const Color.fromARGB(255, 48, 154, 240).withOpacity(0.11), //  color of the shadow
-            offset: const Offset(0, 2), // Offset (vertical, horizontal)
+            offset: const Offset(0, 2), // offset (vertical, horizontal)
           ),
         ],
       ),
@@ -140,7 +142,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
             ),
             
         
-            Padding(
+            Padding( 
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Previous Result",
@@ -159,15 +161,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                 
                 border: Border.all()
                 ),
-                child: Center(child: Text("No Previous Result \navailable",
-
-
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black38,
-                  fontSize: iconSize*0.5
-
-                ),))
+                child: Center(child: previousResult)
               ),
         
         
@@ -217,12 +211,12 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                               
                             ),
                             onPressed: (){
-                              calculateRiskLevel();
+                              calculateRiskLevel(iconSize);
                               },
-                             child: const Text("Calculate", style: TextStyle(color: Colors.white,fontSize: 15),),
+                             child: Text("Calculate", style: TextStyle(color: Colors.white,fontSize: iconSize*0.5),),
                              ),
 
-                             SizedBox(width: iconSize*2,),
+                             SizedBox(width: iconSize*2.2,),
 
                             ElevatedButton(
                             
@@ -236,7 +230,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                               _patientDataClearConfirmBox(context); // call confirmation dialog box
                               
                               },
-                             child: const Text("Clear", style: TextStyle(color: Colors.white,fontSize: 15),),
+                             child: Text("Clear", style: TextStyle(color: Colors.white,fontSize: iconSize*0.5),),
                              ),
                              
                         ],
@@ -245,7 +239,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                     ],
                   ),
                 ),
-          ),
+              ),
 
 
           ],
@@ -255,13 +249,15 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
   }
 
 
-  void calculateRiskLevel(){
+  void calculateRiskLevel(double iconSize){
 
     if(_formKey.currentState!.validate()){ // check validity of foam filed
       print(_ageCVDController.text);
       print(_genderCVDController.text);
       print(_heightCVDController.text);
       print(_weightCVDController.text);
+      _showCVDRiskLevel(context,"Low Risk Level",'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+      
     }
   }
 
@@ -280,12 +276,12 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         return AlertDialog(
           content: const Text("Do you want to clear all patient's data?",style: TextStyle(fontSize: 25),),
           actions: [
-            TextButton(
+            TextButton( // "no" button
               onPressed: () {
                 Navigator.of(context).pop(); // close the confirmation box
               },
               child: Container(
-                                height: 30,
+                height: 30,
                 width: 40,
                 decoration: BoxDecoration(
                   color: Colors.green,
@@ -297,7 +293,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                 )
               ),
             ),
-            TextButton(
+            TextButton( // "yes" button
               onPressed: () {
                 _riskCVDParameterClear(); // clear patient's data
                 Navigator.of(context).pop(); // close the confirmation box
@@ -345,7 +341,7 @@ bool isValidGender(String input) {
 
 bool isValidHeight(String input) {
   try {
-        int height = int.parse(input); // check input is int or not
+        double height = double.parse(input); // check input is valid or not
         return height > 40 && height <= 200; // check reasonable range
   } catch (e) {
 
@@ -355,11 +351,49 @@ bool isValidHeight(String input) {
 
 bool isValidWeight(String input) {
   try {
-        int weight = int.parse(input); // check input is int or not
+        int weight = int.parse(input); // check input is valid or not
         return weight > 40 && weight <= 200; // check reasonable range
   } catch (e) {
 
     return false; // if there is any error ,return false
   }
 }
+
+  void _showCVDRiskLevel(BuildContext context, String riskLevel, String message, Color boxColor ,Color riskColor) { // create result display dialog box
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: boxColor,// color of the dialog box
+          title: Container(// decoration of dialog box
+            decoration: BoxDecoration(
+              color: riskColor, // color of the risk level
+              borderRadius: BorderRadius.circular(12)
+
+            ),
+            child: Center(child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text(riskLevel,style: const TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),), // cvd risk level
+                )
+              )
+            ),
+            
+
+          content: Text("\n$message",textAlign: TextAlign.center,style: const TextStyle(fontSize: 16),), // message to to the user 
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // close dialog box box 
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  
+
 
