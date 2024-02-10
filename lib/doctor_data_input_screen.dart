@@ -88,11 +88,14 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
               width: iconSize*0.7,// adjust width of image using current screen width
               height: iconSize*0.7, // height of image
             ),
-              Image.asset(
-              'assets/data_input_report_icon.png', //image file direct
-              width: iconSize*1.6, // adjust width of image using current screen width
-              height: iconSize*1.6, // height of image
-            ),
+              GestureDetector(
+                onTap: () {},
+                child: Image.asset(
+                'assets/data_input_report_icon.png', //image file direct
+                width: iconSize*1.6, // adjust width of image using current screen width
+                height: iconSize*1.6, // height of image
+                            ),
+              ),
           
             ],
           ),
