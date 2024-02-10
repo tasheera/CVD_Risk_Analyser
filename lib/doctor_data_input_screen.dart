@@ -203,18 +203,45 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                       const SizedBox(height: 5,), // add space between name and field
                       _buildRiskInputField("insert in Kilograms", isValidHeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
 
+                      const SizedBox(height: 20,),
 
+                      Row(
+                        
+                        children: [
+                           SizedBox(width: iconSize*0.8,),
+                          ElevatedButton(
+                            
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                              fixedSize: Size(iconSize*3.7, iconSize*1.1),
+                              
+                            ),
+                            onPressed: (){
+                              calculateRiskLevel();
+                              },
+                             child: const Text("Calculate", style: TextStyle(color: Colors.white,fontSize: 15),),
+                             ),
 
-                      ElevatedButton(
-                        onPressed: (){
-                          if(_formKey.currentState!.validate()){ // check validity of foam filed
-                          print(_ageCVDController.text);
-                          print(_genderCVDController.text);
-                          print(_heightCVDController.text);
-                          print(_weightCVDController.text);
-                          }
-                          },
-                         child: const Text("Save"),)
+                             SizedBox(width: iconSize*2,),
+
+                            ElevatedButton(
+                            
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              fixedSize: Size(iconSize*3.7, iconSize*1.1),
+                              
+                            ),
+                            onPressed: (){
+                                                                     
+                              _riskCVDParameterClear();
+                              
+                              },
+                             child: const Text("Clear", style: TextStyle(color: Colors.white,fontSize: 15),),
+                             ),
+                             
+                        ],
+                      ),
+                         
                     ],
                   ),
                 ),
@@ -226,6 +253,24 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
       ),
     );
   }
+
+
+  void calculateRiskLevel(){
+    //
+    if(_formKey.currentState!.validate()){ // check validity of foam filed
+    print(_ageCVDController.text);
+    print(_genderCVDController.text);
+    print(_heightCVDController.text);
+    print(_weightCVDController.text);
+    }
+  }
+
+  void _riskCVDParameterClear(){
+    _ageCVDController.clear();
+    _genderCVDController.clear();
+    _heightCVDController.clear();
+    _weightCVDController.clear();
+}
 }
 
 
@@ -266,3 +311,4 @@ bool isValidWeight(String input) {
     return false; // if there is any error ,return false
   }
 }
+
