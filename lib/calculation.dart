@@ -515,26 +515,135 @@ main() {
       } //box 23
       else if ((45 <= inputA && inputA <= 49) && (35 < BMI) && (120 < SBP)) {
         print("green");
-      } else if ((40 <= inputA && inputA <= 44) && (35 <= BMI) && (120 < SBP)) {
+      } else if ((45 <= inputA && inputA <= 49) && (35 <= BMI) && (120 < SBP)) {
         print("yello");
-      } else if ((40 <= inputA && inputA <= 44) &&
+      } else if ((45 <= inputA && inputA <= 49) &&
           (35 <= BMI && BMI < 35) &&
           (120 <= SBP && SBP <= 159)) {
         print("yello");
-      } else if ((40 <= inputA && inputA <= 44) &&
+      } else if ((45 <= inputA && inputA <= 49) &&
           (20 > BMI) &&
           (160 <= SBP && SBP <= 179)) {
         print("yello");
-      } else if ((40 <= inputA && inputA <= 44) &&
+      } else if ((45 <= inputA && inputA <= 49) &&
           (20 <= BMI) &&
           (160 <= SBP && SBP <= 179)) {
         print("orange");
-      } else if ((40 <= inputA && inputA <= 44) &&
+      } else if ((45 <= inputA && inputA <= 49) &&
           (20 <= BMI && 20 > BMI) &&
           (180 <= SBP)) {
         print("orange");
       }
       //box24
+      else if ((50 <= inputA && inputA <= 54) &&
+          (20 <= BMI && 20 > BMI) &&
+          (139 >= SBP)) {
+        return ("yello");
+      } else if ((50 <= inputA && inputA <= 54) &&
+          (24 >= BMI) &&
+          (140 <= SBP && 159 >= SBP)) {
+        return ("yellow");
+      } else if ((50 <= inputA && inputA <= 54) &&
+          (24 < BMI) &&
+          (140 <= SBP && 159 >= SBP)) {
+        return ("orange");
+      } else if ((50 <= inputA && inputA <= 54) &&
+          (24 < BMI && 24 >= BMI) &&
+          (160 <= SBP)) {
+        return ("orange");
+      }
+      //box25
+      else if ((55 <= inputA && inputA <= 59) &&
+          (24 < BMI && 24 >= BMI) &&
+          (120 < SBP)) {
+        return ("yello");
+      } else if ((55 <= inputA && inputA <= 59) &&
+          (29 >= BMI) &&
+          (120 <= SBP && SBP <= 139)) {
+        return ("yello");
+      } else if ((55 <= inputA && inputA <= 59) &&
+          (29 < BMI) &&
+          (120 <= SBP && SBP <= 139)) {
+        return ("orange");
+      } else if ((55 <= inputA && inputA <= 59) &&
+          (29 < BMI && 29 >= BMI) &&
+          (140 <= SBP && SBP <= 179)) {
+        return ("orange");
+      } else if ((55 <= inputA && inputA <= 59) &&
+          (24 >= BMI) &&
+          (180 <= SBP)) {
+        return ("orange");
+      } else if ((55 <= inputA && inputA <= 59) && (24 < BMI) && (180 <= SBP)) {
+        return ("red");
+      }
+//box 26
+      else if ((60 <= inputA && inputA <= 64) && (29 >= BMI) && (120 > SBP)) {
+        return ("yello");
+      } else if ((60 <= inputA && inputA <= 64) && (29 < BMI) && (120 > SBP)) {
+        return ("orange");
+      } else if ((60 <= inputA && inputA <= 64) &&
+          (29 < BMI && 29 >= BMI) &&
+          (120 <= SBP && SBP <= 159)) {
+        return ("orange");
+      } else if ((60 <= inputA && inputA <= 64) &&
+          (29 >= BMI) &&
+          (160 <= SBP && SBP <= 179)) {
+        return ("orange");
+      } else if ((60 <= inputA && inputA <= 64) &&
+          (29 < BMI) &&
+          (160 <= SBP && SBP <= 179)) {
+        return ("red");
+      } else if ((60 <= inputA && inputA <= 64) &&
+          (29 < BMI && 29 >= BMI) &&
+          (180 <= SBP)) {
+        return ("red");
+      }
+      //box 27
+      else if ((65 <= inputA && inputA <= 69) &&
+          (29 < BMI && 29 >= BMI) &&
+          (139 <= SBP)) {
+        return ("orange");
+      } else if ((65 <= inputA && inputA <= 69) &&
+          (35 > BMI) &&
+          (140 <= SBP && 159 >= SBP)) {
+        return ("orange");
+      } else if ((65 <= inputA && inputA <= 69) &&
+          (35 <= BMI) &&
+          (140 <= SBP && 159 >= SBP)) {
+        return ("red");
+      } else if ((65 <= inputA && inputA <= 69) &&
+          (35 <= BMI && 35 > BMI) &&
+          (160 <= SBP && 179 >= SBP)) {
+        return ("red");
+      } else if ((65 <= inputA && inputA <= 69) && (35 > BMI) && (180 <= SBP)) {
+        return ("red");
+      } else if ((65 <= inputA && inputA <= 69) &&
+          (35 <= BMI) &&
+          (180 <= SBP)) {
+        return ("brown");
+      }
+      //box 28
+      else if ((70 <= inputA && inputA <= 74) &&
+          (35 <= BMI && 35 > BMI) &&
+          (120 > SBP)) {
+        return ("orange");
+      } else if ((70 <= inputA && inputA <= 74) &&
+          (35 > BMI) &&
+          (120 <= SBP && 139 >= SBP)) {
+        return ("orange");
+      } else if ((70 <= inputA && inputA <= 74) &&
+          (35 <= BMI) &&
+          (120 <= SBP && 139 >= SBP)) {
+        return ("red");
+      } else if ((70 <= inputA && inputA <= 74) &&
+          (35 <= BMI && 35 > BMI) &&
+          (140 <= SBP && 179 >= SBP)) {
+        return ("red");
+      } else if ((70 <= inputA && inputA <= 74) &&
+          (35 <= BMI && 35 > BMI) &&
+          (180 <= SBP)) {
+        return ("brown");
+      }
     } else {
       //nonsmoke
     }
