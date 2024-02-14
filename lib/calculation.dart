@@ -1,7 +1,7 @@
 import 'dart:io';
 
 main() {
-  //lab base chart
+  //non-lab base chart
 
   //get weight
   var inputw = 1;
