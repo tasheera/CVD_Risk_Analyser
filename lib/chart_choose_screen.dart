@@ -1,3 +1,4 @@
+import 'package:cvd_risk_analyser/doctor_data_input_screen.dart';
 import 'package:flutter/material.dart';
 
 class ChartChoose extends StatelessWidget {
@@ -29,15 +30,15 @@ class ChartChoose extends StatelessWidget {
                 height: 20,
               ),
 
-              //TODO add correct chart screen after creating chart input screens
+              
 
-              const ChartChooseButton(name: "Laboratory Chart", moveScreen: ChartChoose(),), // create object from class ChartChooseButton for choose chart
+              ChartChooseButton(name: "Laboratory Chart", moveScreen: DoctorInputScreen(),), // create object from class ChartChooseButton for choose chart
                 
               const SizedBox( // give extra space between widgets
                 height: 20,
               ),
 
-              const ChartChooseButton(name: "Non Laboratory Chart", moveScreen: ChartChoose(),), // create object from class ChartChooseButton for choose chart
+              ChartChooseButton(name: "Non Laboratory Chart", moveScreen: DoctorInputScreen(),), // create object from class ChartChooseButton for choose chart
            
             ],
           ),
