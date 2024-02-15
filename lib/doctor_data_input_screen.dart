@@ -83,7 +83,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween, // distribute free space
           children: [
-            const Text('Date\nCheck CVD risk chart below', style: TextStyle(fontSize: 18),),
+            Text('Date\nCheck CVD risk chart below',  style: TextStyle(fontSize: iconSize*0.5),),
             
             Image.asset(
               'assets/data_input_Vector_icon.png', //image file directory
