@@ -1,4 +1,5 @@
 
+import 'package:cvd_risk_analyser/calculation.dart';
 import 'package:flutter/material.dart';
 
 class DoctorInputScreen extends StatefulWidget {
@@ -287,9 +288,26 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
     if(_formKey.currentState!.validate()){ // check validity of foam filed
       print(_ageCVDController.text);
       print(_genderCVDController.text);
-      print(_heightCVDController.text);
+      print(_sbpCVDController.text);
+      print(_smokerCVDController.text);
+
+
+
+      if (widget.number==1){ // check chart type
+              print(_heightCVDController.text);
       print(_weightCVDController.text);
-      _showCVDRiskLevel(context,"Low Risk Level",'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+      }
+
+      if (widget.number==3){// check chart type
+        print(_diabeticCVDController.text);        
+        }
+
+        //ToDO add correct deatils to cvd result
+
+        String cvdLevel=calculation(_ageCVDController.text, _genderCVDController.text, _heightCVDController.text, _weightCVDController.text, _sbpCVDController.text, _smokerCVDController.text);
+
+      _showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+      
       
     }
   }
