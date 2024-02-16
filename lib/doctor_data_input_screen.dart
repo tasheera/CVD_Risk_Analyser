@@ -21,10 +21,10 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
   final TextEditingController _weightCVDController = TextEditingController();// controller for weight field
   final TextEditingController _diabeticCVDController = TextEditingController();// controller for diabetic field
   final TextEditingController _sbpCVDController = TextEditingController();// controller for SBP text field
-  final TextEditingController _smokerCVDController = TextEditingController();// controller for smoker text fiel
-  final TextEditingController _chrocCVDController = TextEditingController();// controller for chorostrol text field
+  final TextEditingController _smokerCVDController = TextEditingController();// controller for smoker text field
+  final TextEditingController _cholesterolCVDController = TextEditingController();// controller for cholesterol text field
 
-  Text previousResult=Text("No Previous Result available",textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontSize: 17 ),);
+  Text previousResult=const Text("No Previous Result available",textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontSize: 17 ),);
 
 // create function for return text filed with parameters
   Widget _buildRiskInputField(String fieldName, validationFunction, String error, TextInputType keyboardType, TextEditingController controller){
@@ -84,12 +84,16 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
   @override
   Widget build(BuildContext context) {
     double iconSize = MediaQuery.of(context).size.width * 0.08; // return current screen width 
+    String chartType= widget.number==3 ? "Lab chart" : "Non- Lab chart";
+    
+    DateTime dt = DateTime.now();
+    String dd="${dt.day}/${dt.month}/${dt.year}";
     return Scaffold(
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween, // distribute free space
           children: [
-            Text('Date\nCheck CVD risk chart below',  style: TextStyle(fontSize: iconSize*0.5),),
+            Text('$chartType\t $dd\nCheck CVD risk chart below', style: TextStyle(fontSize: iconSize*0.5),),
             
             Image.asset(
               'assets/data_input_Vector_icon.png', //image file directory
@@ -102,13 +106,15 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                 'assets/data_input_report_icon.png', //image file direct
                 width: iconSize*1.6, // adjust width of image using current screen width
                 height: iconSize*1.6, // height of image
-                            ),
+                
+                ),
               ),
           
             ],
           ),
 
       ),
+
 
       body: SingleChildScrollView( // enable scroll option
         child: Column(
@@ -219,9 +225,9 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
                       if (widget.number==3)const SizedBox(height: 10,),
 
-                      if (widget.number==3) const Text("Chrostrol level :",style: TextStyle(fontSize: 17,),), // create field name
+                      if (widget.number==3) const Text("Cholesterol level :",style: TextStyle(fontSize: 17,),), // create field name
                       if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==3) _buildRiskInputField("insert chrostrol level", isValidChroc,"Enter valid chrostrol level",TextInputType.number,_chrocCVDController), // create input field
+                      if (widget.number==3) _buildRiskInputField("insert cholesterol level", isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
 
                       const SizedBox(height: 10,),
@@ -302,17 +308,19 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         print(_diabeticCVDController.text);        
         }
 
-        //ToDO add correct deatils to cvd result
+        //ToDO add correct details to cvd result
 
+        // get cvd level from calculation
         String cvdLevel=calculation(_ageCVDController.text, _genderCVDController.text, _heightCVDController.text, _weightCVDController.text, _sbpCVDController.text, _smokerCVDController.text);
 
+      // call function to show cvd level
       _showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
       
       
     }
   }
 
-  void _riskCVDParameterClear(){ // clear the fileds input data
+  void _riskCVDParameterClear(){ // clear the fields input data
     _ageCVDController.clear();
     _genderCVDController.clear();
     _heightCVDController.clear();
@@ -431,7 +439,7 @@ bool isValidSmoker(String input) {
 }
 
 
-bool isValidChroc(String input) {
+bool isValidCholesterol(String input) {
   try {
         double height = double.parse(input); // check input is valid or not
         return height > 0 && height <= 10; // check reasonable range
