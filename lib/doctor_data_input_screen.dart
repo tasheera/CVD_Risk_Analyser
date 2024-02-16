@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 class DoctorInputScreen extends StatefulWidget {
-  const DoctorInputScreen({super.key});
+  final int number;
+  const DoctorInputScreen({super.key, required this.number});
 
   @override
   State<DoctorInputScreen> createState() => _DoctorInputScreenState();
@@ -261,7 +262,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
     }
   }
 
-  void _riskCVDParameterClear(){
+  void _riskCVDParameterClear(){ // clear the fileds input data
     _ageCVDController.clear();
     _genderCVDController.clear();
     _heightCVDController.clear();

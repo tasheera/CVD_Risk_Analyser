@@ -32,13 +32,13 @@ class ChartChoose extends StatelessWidget {
 
               
 
-              ChartChooseButton(name: "Laboratory Chart", moveScreen: DoctorInputScreen(),), // create object from class ChartChooseButton for choose chart
+              ChartChooseButton(name: "Laboratory chart", moveScreen: DoctorInputScreen( number: 3,)), // create object from class ChartChooseButton for choose chart
                 
               const SizedBox( // give extra space between widgets
                 height: 20,
               ),
 
-              ChartChooseButton(name: "Non Laboratory Chart", moveScreen: DoctorInputScreen(),), // create object from class ChartChooseButton for choose chart
+              const ChartChooseButton(name: "Non Laboratory chart",  moveScreen: DoctorInputScreen(number: 1,)), // create object from class ChartChooseButton for choose chart
            
             ],
           ),
