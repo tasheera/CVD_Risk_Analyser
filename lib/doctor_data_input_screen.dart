@@ -199,6 +199,33 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                       if (widget.number==1)const SizedBox(height: 5,), // add space between name and field
                       if (widget.number==1)_buildRiskInputField("insert in Kilograms", isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
 
+                      const SizedBox(height: 10,),
+                      const Text("SBP Level :",style: TextStyle(fontSize: 17,),), // create field name
+                      const SizedBox(height: 5,), // add space between name and field
+                      _buildRiskInputField("input SBP (mmHg) ", isValidWeight,"Enter valid SBP level",TextInputType.text,_weightCVDController), // create function // create input field   
+
+
+                      if (widget.number==3)const SizedBox(height: 10,),
+
+                      if (widget.number==3) const Text("Diabetic :",style: TextStyle(fontSize: 17,),), // create field name
+                      if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
+                      if (widget.number==3) _buildRiskInputField("input diabetic level", isValidWeight,"Enter valid Diabetic level",TextInputType.number,_weightCVDController), // create input field
+
+
+                      if (widget.number==3)const SizedBox(height: 10,),
+
+                      if (widget.number==3) const Text("Chrostrol level :",style: TextStyle(fontSize: 17,),), // create field name
+                      if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
+                      if (widget.number==3) _buildRiskInputField("insert chrostrol level", isValidWeight,"Enter valid chrostrol level",TextInputType.number,_weightCVDController), // create input field
+
+
+                      const SizedBox(height: 10,),
+
+                      const Text("Smoker :",style: TextStyle(fontSize: 17,),), // create field name
+                      const SizedBox(height: 5,), // add space between name and field
+                      _buildRiskInputField("input yes or no ", isValidWeight,"Enter yes or only",TextInputType.text,_weightCVDController), // create function // create input field   
+
+
                       const SizedBox(height: 20,),
 
                       Row(
