@@ -173,7 +173,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,// left align text
                     children: [
-
+                      
                       const Text("Age :",style: TextStyle(fontSize: 17,fontFamily: "Oswald"),), // create field name
                       const SizedBox(height: 5,), // add space between name and field
                       _buildRiskInputField("input age between 20 and 80", isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
@@ -185,18 +185,19 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                       _buildRiskInputField("biological male/ female", isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
 
 
-                      const SizedBox(height: 10,),
 
-                      const Text("Height :",style: TextStyle(fontSize: 17,),), // create field name
-                      const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("insert in centimeters", isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
+                      if (widget.number==1)const SizedBox(height: 10,),
+
+                      if (widget.number==1)const Text("Height :",style: TextStyle(fontSize: 17,),), // create field name
+                      if (widget.number==1)const SizedBox(height: 5,), // add space between name and field
+                     if (widget.number==1)_buildRiskInputField("insert in centimeters", isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
 
-                      const SizedBox(height: 10,),
+                      if (widget.number==1)const SizedBox(height: 10,),
 
-                      const Text("Weight :",style: TextStyle(fontSize: 17,),), // create field name
-                      const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("insert in Kilograms", isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
+                      if (widget.number==1)const Text("Weight :",style: TextStyle(fontSize: 17,),), // create field name
+                      if (widget.number==1)const SizedBox(height: 5,), // add space between name and field
+                      if (widget.number==1)_buildRiskInputField("insert in Kilograms", isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
 
                       const SizedBox(height: 20,),
 
