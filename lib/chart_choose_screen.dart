@@ -32,7 +32,7 @@ class ChartChoose extends StatelessWidget {
 
               
 
-              ChartChooseButton(name: "Laboratory chart", moveScreen: DoctorInputScreen( number: 3,)), // create object from class ChartChooseButton for choose chart
+              const ChartChooseButton(name: "Laboratory chart", moveScreen: DoctorInputScreen( number: 3,)), // create object from class ChartChooseButton for choose chart
                 
               const SizedBox( // give extra space between widgets
                 height: 20,
@@ -52,7 +52,7 @@ class ChartChoose extends StatelessWidget {
 }
 
 
-// class for chart choosen button
+// class for chart chosen button
 class ChartChooseButton extends StatelessWidget {
   final Widget moveScreen; // type of chart screen
   final String name; // display name for button 
@@ -68,7 +68,7 @@ class ChartChooseButton extends StatelessWidget {
       style: ElevatedButton.styleFrom( // customized the button 
         backgroundColor: Colors.red,
         padding: const EdgeInsets.all(15),
-        fixedSize: const Size(280, 70), // chnage width and height 
+        fixedSize: const Size(280, 70), // change width and height
         ),
       child: Text(name,
         style: const TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.normal),
