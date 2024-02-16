@@ -18,6 +18,10 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
   final TextEditingController _genderCVDController = TextEditingController(); // controller for gender text field
   final TextEditingController _heightCVDController = TextEditingController();// controller for height text field
   final TextEditingController _weightCVDController = TextEditingController();// controller for weight field
+  final TextEditingController _diabeticCVDController = TextEditingController();// controller for diabetic field
+  final TextEditingController _sbpCVDController = TextEditingController();// controller for SBP text field
+  final TextEditingController _smokerCVDController = TextEditingController();// controller for smoker text fiel
+  final TextEditingController _chrocCVDController = TextEditingController();// controller for chorostrol text field
 
   Text previousResult=Text("No Previous Result available",textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontSize: 17 ),);
 
@@ -202,28 +206,28 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                       const SizedBox(height: 10,),
                       const Text("SBP Level :",style: TextStyle(fontSize: 17,),), // create field name
                       const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input SBP (mmHg) ", isValidSBP,"Enter valid SBP level",TextInputType.text,_weightCVDController), // create function // create input field   
+                      _buildRiskInputField("input SBP (mmHg) ", isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field   
 
 
                       if (widget.number==3)const SizedBox(height: 10,),
 
                       if (widget.number==3) const Text("Diabetic :",style: TextStyle(fontSize: 17,),), // create field name
                       if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==3) _buildRiskInputField("input diabetic level", isValidSBP,"Enter valid Diabetic",TextInputType.number,_weightCVDController), // create input field
+                      if (widget.number==3) _buildRiskInputField("input diabetic level", isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
 
 
                       if (widget.number==3)const SizedBox(height: 10,),
 
                       if (widget.number==3) const Text("Chrostrol level :",style: TextStyle(fontSize: 17,),), // create field name
                       if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==3) _buildRiskInputField("insert chrostrol level", isValidChroc,"Enter valid chrostrol level",TextInputType.number,_weightCVDController), // create input field
+                      if (widget.number==3) _buildRiskInputField("insert chrostrol level", isValidChroc,"Enter valid chrostrol level",TextInputType.number,_chrocCVDController), // create input field
 
 
                       const SizedBox(height: 10,),
 
                       const Text("Smoker :",style: TextStyle(fontSize: 17,),), // create field name
                       const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input yes or no ", isValidSmoker,"Enter yes or only",TextInputType.text,_weightCVDController), // create function // create input field   
+                      _buildRiskInputField("input yes or no ", isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field   
 
 
                       const SizedBox(height: 20,),
