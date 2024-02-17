@@ -26,60 +26,6 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
   Text previousResult=const Text("No Previous Result available",textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontSize: 17 ),);
 
-// create function for return text filed with parameters
-  Widget _buildRiskInputField(String fieldName, validationFunction, String error, TextInputType keyboardType, TextEditingController controller){
-    fieldName=fieldName; // assign parameter to local variable
-    error=error; // assign parameter to local variable
-    
-    return Container(
-      height: 50, // height of container
-      decoration: BoxDecoration( // add decoration to container
-        color: Colors.blue.withOpacity(0.09), // opacity gives transparency
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(), // add border
-        boxShadow: [
-          BoxShadow(
-            color: const Color.fromARGB(255, 48, 154, 240).withOpacity(0.11), //  color of the shadow
-            offset: const Offset(0, 2), // offset (vertical, horizontal)
-          ),
-        ],
-      ),
-
-      child: Align(
-        alignment: Alignment.center, // center the text in field
-        child: TextFormField(
-          controller: controller, // assign controller to text field
-          keyboardType: keyboardType, // assign key board type
-          decoration: InputDecoration(
-            hintText: fieldName, // hint text of the text field
-            border: const OutlineInputBorder(
-              borderSide: BorderSide.none, // remove selected effect in text field
-            ),
-
-            hintStyle: const TextStyle(
-              color: Color(0xFF858EA9), // color of the hint text
-            ),
-
-            contentPadding: const EdgeInsets.symmetric(horizontal: 60), // add extra space before type location of the text field
-            
-            ),
-            
-          validator: (value){  // validate use input
-            if (value == null || value.isEmpty){// check null or is empty
-              return "Can not empty";
-              }
-              if(!validationFunction(value)){ // assign validate function
-                return error; // error message to show
-              }
-              return null;          
-          },
-          ),
-      ),
-    );
-
-  }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -184,60 +130,27 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,// left align text
                     children: [
-                      
-                      const Text("Age :",style: TextStyle(fontSize: 17,fontFamily: "Oswald"),), // create field name
-                      const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
 
-                      const SizedBox(height: 10,),
+                      _buildRiskInputField("Age :","input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
 
-                      const Text("Gender :",style: TextStyle(fontSize: 17,),), // create field name
-                      const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
+                      _buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
+
+                      if (widget.number==1)_buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
 
+                      if (widget.number==1)_buildRiskInputField("Weight :","insert in Kilograms", _isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
 
-                      if (widget.number==1)const SizedBox(height: 10,),
-
-                      if (widget.number==1)const Text("Height :",style: TextStyle(fontSize: 17,),), // create field name
-                      if (widget.number==1)const SizedBox(height: 5,), // add space between name and field
-                     if (widget.number==1)_buildRiskInputField("insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
+                     _buildRiskInputField("SBP Level :","input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field
 
 
-                      if (widget.number==1)const SizedBox(height: 10,),
+                     if (widget.number==3) _buildRiskInputField("Diabetic :","input diabetic level", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
 
-                      if (widget.number==1)const Text("Weight :",style: TextStyle(fontSize: 17,),), // create field name
-                      if (widget.number==1)const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==1)_buildRiskInputField("insert in Kilograms", _isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
+                     if (widget.number==3) _buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
-                      const SizedBox(height: 10,),
-                      const Text("SBP Level :",style: TextStyle(fontSize: 17,),), // create field name
-                      const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field
-
-
-                      if (widget.number==3)const SizedBox(height: 10,),
-
-                      if (widget.number==3) const Text("Diabetic :",style: TextStyle(fontSize: 17,),), // create field name
-                      if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==3) _buildRiskInputField("input diabetic level", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
-
-
-                      if (widget.number==3)const SizedBox(height: 10,),
-
-                      if (widget.number==3) const Text("Cholesterol level :",style: TextStyle(fontSize: 17,),), // create field name
-                      if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==3) _buildRiskInputField("insert cholesterol level", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+                    _buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field
 
 
                       const SizedBox(height: 10,),
-
-                      const Text("Smoker :",style: TextStyle(fontSize: 17,),), // create field name
-                      const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field
-
-
-                      const SizedBox(height: 20,),
 
                       Row(
                         
@@ -448,6 +361,77 @@ bool _isValidCholesterol(String input) {
     return false; // if there is any error ,return false
   }
 }
+
+
+// create function for return text filed with parameters and lable
+  Widget _buildRiskInputField(String lableName, String fieldName, validationFunction, String error, TextInputType keyboardType, TextEditingController controller){
+    fieldName=fieldName; // assign parameter to local variable
+    error=error; // assign parameter to local variable
+    
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,// left align text
+      children: [
+        Text("$lableName ",style: TextStyle(fontSize: 17,fontFamily: "Oswald"),),
+        const SizedBox(height: 5,), // add space between name and field
+        Container(
+          height: 50, // height of container
+          decoration: BoxDecoration( // add decoration to container
+            color: Colors.blue.withOpacity(0.09), // opacity gives transparency
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(), // add border
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(255, 48, 154, 240).withOpacity(0.11), //  color of the shadow
+                offset: const Offset(0, 2), // offset (vertical, horizontal)
+              ),
+            ],
+          ),
+        
+          child: Align(
+            alignment: Alignment.center, // center the text in field
+            child: TextFormField(
+              controller: controller, // assign controller to text field
+              keyboardType: keyboardType, // assign key board type
+              decoration: InputDecoration(
+                hintText: fieldName, // hint text of the text field
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide.none, // remove selected effect in text field
+                ),
+        
+                hintStyle: const TextStyle(
+                  color: Color(0xFF858EA9), // color of the hint text
+                ),
+        
+                contentPadding: const EdgeInsets.symmetric(horizontal: 60), // add extra space before type location of the text field
+                
+                ),
+                
+              validator: (value){  // validate use input
+                if (value == null || value.isEmpty){// check null or is empty
+                  return "Can not empty";
+                  }
+                  if(!validationFunction(value)){ // assign validate function
+                    return error; // error message to show
+                  }
+                  return null;          
+              },
+              ),
+          ),
+        ),
+          const SizedBox(height: 10,),
+      ],
+    );
+
+  }
+
+
+
+
+
+
+
+
+
 
   void _showCVDRiskLevel(BuildContext context, String riskLevel, String message, Color boxColor ,Color riskColor) { // create result display dialog box
     showDialog(
