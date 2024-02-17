@@ -1,4 +1,4 @@
-import 'package:cvd_risk_analyser/doctor_data_input_screen.dart';
+import 'package:cvd_risk_analyser/screens/doctor_data_input_screen.dart';
 import 'package:flutter/material.dart';
 
 class ChartChoose extends StatelessWidget {
