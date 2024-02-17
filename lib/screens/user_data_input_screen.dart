@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'input_screen_functions.dart';
+
 class UserInputScreen extends StatefulWidget {
   final String name;
   const UserInputScreen({super.key, required this.name});
@@ -9,6 +11,13 @@ class UserInputScreen extends StatefulWidget {
 }
 
 class _UserInputScreenState extends State<UserInputScreen> {
+  
+  final GlobalKey <FormState> _formKey =GlobalKey();// create global key object form key validate
+
+  final TextEditingController _ageCVDController = TextEditingController(); // controller for age text field
+
+
+
   @override
   Widget build(BuildContext context) {
     double iconSize = MediaQuery.of(context).size.width * 0.08; // return current screen width 
@@ -52,11 +61,41 @@ class _UserInputScreenState extends State<UserInputScreen> {
               ),
             ),
 
+            Form(
+                key: _formKey, // assign key of the foam widget which is created in above
+                child: Container(
+                  margin: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,// left align text
+                    children: [
+
+                    buildRiskInputField("Age :","input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
+                      
+
+                     
+                         
+                    ],
+                  ),
+                ),
+              ),
           ],
         ),
       ),
 
 
     );
+  }
+}
+
+
+// input data vaidation
+
+bool _isValidAge(String input) {
+  try {
+        int age = int.parse(input);  // check input is int or not
+        return age >= 1 && age <= 120; // check reasonable range
+  } catch (e) {
+
+    return false; // if there is any error ,return false
   }
 }
