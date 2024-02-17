@@ -17,7 +17,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
     return Scaffold(
          
       appBar: AppBar(
-        
+
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween, // distribute free space
           children: [
@@ -40,6 +40,23 @@ class _UserInputScreenState extends State<UserInputScreen> {
           ),
 
       ),
+
+          body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(
+              child: Image.asset( // doctor icon
+              'assets/user_input_screen_image.png', //image file direct
+              width: iconSize*10.8,// adjust width of image using current screen width
+              height: iconSize*5.8, // height of image
+              ),
+            ),
+
+          ],
+        ),
+      ),
+
+
     );
   }
 }
