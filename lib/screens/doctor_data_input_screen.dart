@@ -2,6 +2,8 @@
 import 'package:cvd_risk_analyser/calculation.dart';
 import 'package:flutter/material.dart';
 
+import 'input_screen_functions.dart';
+
 class DoctorInputScreen extends StatefulWidget {
   final int number;
   const DoctorInputScreen({super.key, required this.number});
@@ -131,23 +133,23 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                     crossAxisAlignment: CrossAxisAlignment.start,// left align text
                     children: [
 
-                      _buildRiskInputField("Age :","input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
+                      buildRiskInputField("Age :","input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
 
-                      _buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
+                      buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
 
-                      if (widget.number==1)_buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
-
-
-                      if (widget.number==1)_buildRiskInputField("Weight :","insert in Kilograms", _isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
-
-                     _buildRiskInputField("SBP Level :","input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field
+                      if (widget.number==1)buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
 
-                     if (widget.number==3) _buildRiskInputField("Diabetic :","input diabetic level", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
+                      if (widget.number==1)buildRiskInputField("Weight :","insert in Kilograms", _isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
 
-                     if (widget.number==3) _buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+                     buildRiskInputField("SBP Level :","input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field
 
-                    _buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field
+
+                     if (widget.number==3) buildRiskInputField("Diabetic :","input diabetic level", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
+
+                     if (widget.number==3) buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+
+                    buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field
 
 
                       const SizedBox(height: 10,),
@@ -180,7 +182,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                             ),
                             onPressed: (){
                                                                      
-                              _patientDataClearConfirmBox(context); // call confirmation dialog box
+                              patientDataClearConfirmBox(context,_riskCVDParameterClear); // call confirmation dialog box
                               
                               },
                              child: Text("Clear", style: TextStyle(color: Colors.white,fontSize: iconSize*0.5),),
@@ -227,7 +229,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         String cvdLevel=calculation(_ageCVDController.text, _genderCVDController.text, _heightCVDController.text, _weightCVDController.text, _sbpCVDController.text, _smokerCVDController.text);
 
       // call function to show cvd level
-      _showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+      showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
       
       
     }
@@ -239,57 +241,6 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
     _heightCVDController.clear();
     _weightCVDController.clear();
 }
-
-
-  void _patientDataClearConfirmBox(BuildContext context) { // create clear confirmation box
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          content: const Text("Do you want to clear all patient's data?",style: TextStyle(fontSize: 25),),
-          actions: [
-            TextButton( // "no" button
-              onPressed: () {
-                Navigator.of(context).pop(); // close the confirmation box
-              },
-              child: Container(
-                height: 30,
-                width: 40,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(10),
-                  
-                ),
-                child: const Center(
-                    child: Text('No', style: TextStyle(color: Colors.white))
-                )
-              ),
-            ),
-            TextButton( // "yes" button
-              onPressed: () {
-                _riskCVDParameterClear(); // clear patient's data
-                Navigator.of(context).pop(); // close the confirmation box
-              },
-              child: Container(
-                height: 30,
-                width: 40,
-                  decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(10),
-                  
-                ),
-                child: const Center(
-                    child: Text('Yes', style: TextStyle(color: Colors.white))
-                )
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-
 }
 
 
@@ -363,66 +314,6 @@ bool _isValidCholesterol(String input) {
 }
 
 
-// create function for return text filed with parameters and lable
-  Widget _buildRiskInputField(String lableName, String fieldName, validationFunction, String error, TextInputType keyboardType, TextEditingController controller){
-    fieldName=fieldName; // assign parameter to local variable
-    error=error; // assign parameter to local variable
-    
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,// left align text
-      children: [
-        Text("$lableName ",style: TextStyle(fontSize: 17,fontFamily: "Oswald"),),
-        const SizedBox(height: 5,), // add space between name and field
-        Container(
-          height: 50, // height of container
-          decoration: BoxDecoration( // add decoration to container
-            color: Colors.blue.withOpacity(0.09), // opacity gives transparency
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(), // add border
-            boxShadow: [
-              BoxShadow(
-                color: const Color.fromARGB(255, 48, 154, 240).withOpacity(0.11), //  color of the shadow
-                offset: const Offset(0, 2), // offset (vertical, horizontal)
-              ),
-            ],
-          ),
-        
-          child: Align(
-            alignment: Alignment.center, // center the text in field
-            child: TextFormField(
-              controller: controller, // assign controller to text field
-              keyboardType: keyboardType, // assign key board type
-              decoration: InputDecoration(
-                hintText: fieldName, // hint text of the text field
-                border: const OutlineInputBorder(
-                  borderSide: BorderSide.none, // remove selected effect in text field
-                ),
-        
-                hintStyle: const TextStyle(
-                  color: Color(0xFF858EA9), // color of the hint text
-                ),
-        
-                contentPadding: const EdgeInsets.symmetric(horizontal: 60), // add extra space before type location of the text field
-                
-                ),
-                
-              validator: (value){  // validate use input
-                if (value == null || value.isEmpty){// check null or is empty
-                  return "Can not empty";
-                  }
-                  if(!validationFunction(value)){ // assign validate function
-                    return error; // error message to show
-                  }
-                  return null;          
-              },
-              ),
-          ),
-        ),
-          const SizedBox(height: 10,),
-      ],
-    );
-
-  }
 
 
 
@@ -432,40 +323,6 @@ bool _isValidCholesterol(String input) {
 
 
 
-
-  void _showCVDRiskLevel(BuildContext context, String riskLevel, String message, Color boxColor ,Color riskColor) { // create result display dialog box
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: boxColor,// color of the dialog box
-          title: Container(// decoration of dialog box
-            decoration: BoxDecoration(
-              color: riskColor, // color of the risk level
-              borderRadius: BorderRadius.circular(12)
-
-            ),
-            child: Center(child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(riskLevel,style: const TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold),), // cvd risk level
-                )
-              )
-            ),
-            
-
-          content: Text("\n$message",textAlign: TextAlign.center,style: const TextStyle(fontSize: 16),), // message to to the user 
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // close dialog box box 
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
 
 
   
