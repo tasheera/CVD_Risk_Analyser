@@ -312,19 +312,3 @@ bool _isValidCholesterol(String input) {
     return false; // if there is any error ,return false
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
