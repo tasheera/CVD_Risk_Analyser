@@ -187,13 +187,13 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                       
                       const Text("Age :",style: TextStyle(fontSize: 17,fontFamily: "Oswald"),), // create field name
                       const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input age between 20 and 80", isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
+                      _buildRiskInputField("input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
 
                       const SizedBox(height: 10,),
 
                       const Text("Gender :",style: TextStyle(fontSize: 17,),), // create field name
                       const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("biological male/ female", isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
+                      _buildRiskInputField("biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
 
 
 
@@ -201,40 +201,40 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
                       if (widget.number==1)const Text("Height :",style: TextStyle(fontSize: 17,),), // create field name
                       if (widget.number==1)const SizedBox(height: 5,), // add space between name and field
-                     if (widget.number==1)_buildRiskInputField("insert in centimeters", isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
+                     if (widget.number==1)_buildRiskInputField("insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
 
                       if (widget.number==1)const SizedBox(height: 10,),
 
                       if (widget.number==1)const Text("Weight :",style: TextStyle(fontSize: 17,),), // create field name
                       if (widget.number==1)const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==1)_buildRiskInputField("insert in Kilograms", isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
+                      if (widget.number==1)_buildRiskInputField("insert in Kilograms", _isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
 
                       const SizedBox(height: 10,),
                       const Text("SBP Level :",style: TextStyle(fontSize: 17,),), // create field name
                       const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input SBP (mmHg) ", isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field   
+                      _buildRiskInputField("input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field
 
 
                       if (widget.number==3)const SizedBox(height: 10,),
 
                       if (widget.number==3) const Text("Diabetic :",style: TextStyle(fontSize: 17,),), // create field name
                       if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==3) _buildRiskInputField("input diabetic level", isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
+                      if (widget.number==3) _buildRiskInputField("input diabetic level", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
 
 
                       if (widget.number==3)const SizedBox(height: 10,),
 
                       if (widget.number==3) const Text("Cholesterol level :",style: TextStyle(fontSize: 17,),), // create field name
                       if (widget.number==3) const SizedBox(height: 5,), // add space between name and field
-                      if (widget.number==3) _buildRiskInputField("insert cholesterol level", isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+                      if (widget.number==3) _buildRiskInputField("insert cholesterol level", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
 
                       const SizedBox(height: 10,),
 
                       const Text("Smoker :",style: TextStyle(fontSize: 17,),), // create field name
                       const SizedBox(height: 5,), // add space between name and field
-                      _buildRiskInputField("input yes or no ", isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field   
+                      _buildRiskInputField("input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field
 
 
                       const SizedBox(height: 20,),
@@ -381,7 +381,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
 
 
-bool isValidAge(String input) {
+bool _isValidAge(String input) {
   try {
         int age = int.parse(input);  // check input is int or not
         return age >= 40 && age <= 74; // check reasonable range
@@ -391,7 +391,7 @@ bool isValidAge(String input) {
   }
 }
 
-bool isValidGender(String input) {
+bool _isValidGender(String input) {
 
   if (input.toLowerCase()=="female" || input.toLowerCase()=="male"){ //  check male or female
     return true;
@@ -399,7 +399,7 @@ bool isValidGender(String input) {
   return false;
 }
 
-bool isValidHeight(String input) {
+bool _isValidHeight(String input) {
   try {
         double height = double.parse(input); // check input is valid or not
         return height > 40 && height <= 250; // check reasonable range
@@ -409,7 +409,7 @@ bool isValidHeight(String input) {
   }
 }
 
-bool isValidWeight(String input) {
+bool _isValidWeight(String input) {
   try {
         int weight = int.parse(input); // check input is valid or not
         return weight > 30 && weight <= 150; // check reasonable range
@@ -420,7 +420,7 @@ bool isValidWeight(String input) {
 }
 
 
-bool isValidSBP(String input) {
+bool _isValidSBP(String input) {
   try {
         double height = double.parse(input); // check input is valid or not
         return height > 0 && height <= 180; // check reasonable range
@@ -431,7 +431,7 @@ bool isValidSBP(String input) {
 }
 
 
-bool isValidSmoker(String input) {
+bool _isValidSmoker(String input) {
   if (input.toLowerCase()=="yes" || input.toLowerCase()=="no"){ //  check male or female
     return true;
   }
@@ -439,7 +439,7 @@ bool isValidSmoker(String input) {
 }
 
 
-bool isValidCholesterol(String input) {
+bool _isValidCholesterol(String input) {
   try {
         double height = double.parse(input); // check input is valid or not
         return height > 0 && height <= 10; // check reasonable range
