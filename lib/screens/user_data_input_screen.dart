@@ -11,10 +11,24 @@ class UserInputScreen extends StatefulWidget {
 }
 
 class _UserInputScreenState extends State<UserInputScreen> {
+
   
   final GlobalKey <FormState> _formKey =GlobalKey();// create global key object form key validate
 
   final TextEditingController _ageCVDController = TextEditingController(); // controller for age text field
+  final TextEditingController _genderCVDController = TextEditingController(); // controller for gender text field
+  final TextEditingController _heightCVDController = TextEditingController();// controller for height text field
+  final TextEditingController _weightCVDController = TextEditingController();// controller for weight field
+  final TextEditingController _apHiCVDController = TextEditingController();// controller for ap hi field
+  final TextEditingController _apLoCVDController = TextEditingController();// controller for ap lo field
+  final TextEditingController _glucoseCVDController = TextEditingController();// controller for diabetic field
+  final TextEditingController _smokerCVDController = TextEditingController();// controller for smoker text field
+  final TextEditingController _cholesterolCVDController = TextEditingController();// controller for cholesterol text field
+  final TextEditingController _alcholCVDController = TextEditingController();// controller for alcohol intake text field
+  final TextEditingController _physicalCVDController = TextEditingController();// controller for physical activity text field
+
+
+
 
 
 
@@ -70,7 +84,29 @@ class _UserInputScreenState extends State<UserInputScreen> {
                     children: [
 
                     buildRiskInputField("Age :","input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
+                    
+                    buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create input field
                       
+                    buildRiskInputField("Weight :","insert in Kilograms", _isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
+
+                    buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
+
+                    buildRiskInputField("Systolic blood ressure :","insert Presure", _isValidHeight,"Enter valid presure",TextInputType.number,_apHiCVDController), // create input field
+
+                    buildRiskInputField("Diastolic blood pressure :","insert Presure", _isValidHeight,"Enter valid presure",TextInputType.number,_apLoCVDController), // create input field
+
+                    buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidHeight,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+
+                    buildRiskInputField("Glucose level :","insert glucose level", _isValidHeight,"Enter valid glucose level",TextInputType.number,_glucoseCVDController), // create input field
+
+                    buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController),  // create input field
+
+                    buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_alcholCVDController), // create input field
+
+                    buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_physicalCVDController), // create input field
+
+
+
 
                      
                          
@@ -90,6 +126,8 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
 // input data vaidation
 
+//TODO input data validation
+
 bool _isValidAge(String input) {
   try {
         int age = int.parse(input);  // check input is int or not
@@ -99,3 +137,40 @@ bool _isValidAge(String input) {
     return false; // if there is any error ,return false
   }
 }
+
+bool _isValidGender(String input) {
+
+  if (input.toLowerCase()=="female" || input.toLowerCase()=="male"){ //  check male or female
+    return true;
+  }
+  return false;
+}
+
+bool _isValidWeight(String input) {
+  try {
+        int weight = int.parse(input); // check input is valid or not
+        return weight > 30 && weight <= 150; // check reasonable range
+  } catch (e) {
+
+    return false; // if there is any error ,return false
+  }
+}
+
+bool _isValidHeight(String input) {
+  try {
+        double height = double.parse(input); // check input is valid or not
+        return height > 0 && height <= 250; // check reasonable range
+  } catch (e) {
+
+    return false; // if there is any error ,return false
+  }
+}
+
+bool _isValidSmoker(String input) {
+  if (input.toLowerCase()=="yes" || input.toLowerCase()=="no"){ //  check male or female
+    return true;
+  }
+  return false;
+}
+
+
