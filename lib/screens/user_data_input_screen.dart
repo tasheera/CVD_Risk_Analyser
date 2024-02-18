@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'input_screen_functions.dart';
 
 class UserInputScreen extends StatefulWidget {
@@ -12,7 +11,6 @@ class UserInputScreen extends StatefulWidget {
 
 class _UserInputScreenState extends State<UserInputScreen> {
 
-  
   final GlobalKey <FormState> _formKey =GlobalKey();// create global key object form key validate
 
   final TextEditingController _ageCVDController = TextEditingController(); // controller for age text field
@@ -24,13 +22,8 @@ class _UserInputScreenState extends State<UserInputScreen> {
   final TextEditingController _glucoseCVDController = TextEditingController();// controller for diabetic field
   final TextEditingController _smokerCVDController = TextEditingController();// controller for smoker text field
   final TextEditingController _cholesterolCVDController = TextEditingController();// controller for cholesterol text field
-  final TextEditingController _alcholCVDController = TextEditingController();// controller for alcohol intake text field
+  final TextEditingController _alcoholCVDController = TextEditingController();// controller for alcohol intake text field
   final TextEditingController _physicalCVDController = TextEditingController();// controller for physical activity text field
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +84,9 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
                     buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
-                    buildRiskInputField("Systolic blood ressure :","insert Presure", _isValidHeight,"Enter valid presure",TextInputType.number,_apHiCVDController), // create input field
+                    buildRiskInputField("Systolic blood pressure :","insert pressure", _isValidHeight,"Enter valid pressure",TextInputType.number,_apHiCVDController), // create input field
 
-                    buildRiskInputField("Diastolic blood pressure :","insert Presure", _isValidHeight,"Enter valid presure",TextInputType.number,_apLoCVDController), // create input field
+                    buildRiskInputField("Diastolic blood pressure :","insert pressure", _isValidHeight,"Enter valid pressure",TextInputType.number,_apLoCVDController), // create input field
 
                     buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidHeight,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
@@ -101,12 +94,45 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
                     buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController),  // create input field
 
-                    buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_alcholCVDController), // create input field
+                    buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_alcoholCVDController), // create input field
 
                     buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_physicalCVDController), // create input field
 
 
+                   const SizedBox(height: 10,),
 
+                      Row(
+                        
+                        children: [
+                           SizedBox(width: iconSize*0.8,),
+                          ElevatedButton(
+                            
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                              fixedSize: Size(iconSize*3.7, iconSize*1.1),
+                              
+                            ),
+                            onPressed: (){
+                              _predictCVDLevel();
+                              },
+                             child: Text("Predict", style: TextStyle(color: Colors.white,fontSize: iconSize*0.5),),
+                             ),
+
+                             SizedBox(width: iconSize*2.2,),
+
+                            ElevatedButton(
+                            
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              fixedSize: Size(iconSize*3.7, iconSize*1.1),
+                              
+                            ),
+                            onPressed: (){},
+                             child: Text("Clear", style: TextStyle(color: Colors.white,fontSize: iconSize*0.5),),
+                             ),
+                             
+                        ],
+                      ),
 
                      
                          
@@ -124,7 +150,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
 }
 
 
-// input data vaidation
+// input data validation
 
 //TODO input data validation
 
@@ -174,3 +200,8 @@ bool _isValidSmoker(String input) {
 }
 
 
+// predict cvd 
+
+void _predictCVDLevel(){
+
+}
