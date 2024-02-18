@@ -127,7 +127,9 @@ class _UserInputScreenState extends State<UserInputScreen> {
                               fixedSize: Size(iconSize*3.7, iconSize*1.1),
                               
                             ),
-                            onPressed: (){},
+                            onPressed: (){
+                              patientDataClearConfirmBox(context,_riskCVDParameterClear); // call confirmation dialog box
+                            },
                              child: Text("Clear", style: TextStyle(color: Colors.white,fontSize: iconSize*0.5),),
                              ),
                              
@@ -147,6 +149,32 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
     );
   }
+
+
+  // predict cvd 
+
+void _predictCVDLevel(){
+
+}
+
+// clear input data
+  void _riskCVDParameterClear(){
+    _ageCVDController.clear();
+    _genderCVDController.clear();
+    _heightCVDController.clear();
+    _weightCVDController.clear();
+    _apHiCVDController.clear();
+    _apLoCVDController.clear();
+    _glucoseCVDController.clear();
+    _smokerCVDController.clear();
+    _cholesterolCVDController.clear();
+    _alcoholCVDController.clear();
+    _physicalCVDController.clear();
+
+}
+
+
+
 }
 
 
@@ -197,11 +225,4 @@ bool _isValidSmoker(String input) {
     return true;
   }
   return false;
-}
-
-
-// predict cvd 
-
-void _predictCVDLevel(){
-
 }
