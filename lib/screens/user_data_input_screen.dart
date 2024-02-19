@@ -25,6 +25,9 @@ class _UserInputScreenState extends State<UserInputScreen> {
   final TextEditingController _alcoholCVDController = TextEditingController();// controller for alcohol intake text field
   final TextEditingController _physicalCVDController = TextEditingController();// controller for physical activity text field
 
+  Text previousResult=const Text("No Previous Result available",textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontSize: 17 ),);
+
+
   @override
   Widget build(BuildContext context) {
     double iconSize = MediaQuery.of(context).size.width * 0.08; // return current screen width 
@@ -67,6 +70,29 @@ class _UserInputScreenState extends State<UserInputScreen> {
               height: iconSize*5.8, // height of image
               ),
             ),
+
+
+            Padding( 
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Previous Result",
+                style: TextStyle(fontSize: iconSize*0.6),
+                ),
+            ),
+        
+
+
+              Container( // used for show previous result
+                height: iconSize*3.2,
+                width: iconSize*6,
+                decoration: BoxDecoration(
+                  
+                borderRadius: BorderRadius.circular(16),
+                
+                border: Border.all()
+                ),
+                child: Center(child: previousResult)
+              ),
 
             Form(
                 key: _formKey, // assign key of the foam widget which is created in above
@@ -113,7 +139,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
                               
                             ),
                             onPressed: (){
-                              _predictCVDLevel();
+                              _predictCVDLevel(iconSize);
                               },
                              child: Text("Predict", style: TextStyle(color: Colors.white,fontSize: iconSize*0.5),),
                              ),
@@ -152,15 +178,26 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
 
   // predict cvd 
-void _predictCVDLevel(){
+void _predictCVDLevel(double iconSize){
   if(_formKey.currentState!.validate()){
     print(_ageCVDController.text);
     print(_genderCVDController.text);
 
-
-    String cvdLevel="High";
+    //TODO link ml prediction function
+    String cvdLevel="High Risk";
 
     showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+
+          setState(() {
+        if (cvdLevel=="low"){// check cvd level
+        previousResult=Text("Low Risk",style: TextStyle(fontSize: iconSize*0.7,color:Color(0xFF00D823),fontWeight: FontWeight.bold ),); // update previous result
+      }else{
+        previousResult=Text("High Risk",style: TextStyle(fontSize: iconSize*0.7,color:Colors.red,fontWeight: FontWeight.bold ),); //  update previous result
+        
+      }
+      
+    });
+    
 
   }
 }
@@ -180,8 +217,6 @@ void _predictCVDLevel(){
     _physicalCVDController.clear();
 
 }
-
-
 
 }
 

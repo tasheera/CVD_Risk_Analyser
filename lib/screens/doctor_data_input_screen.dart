@@ -230,7 +230,15 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
       // call function to show cvd level
       showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+      setState(() {
+        if (cvdLevel=="low"){// check cvd level
+        previousResult=Text("Low Risk",style: TextStyle(fontSize: iconSize*0.7,color:Color(0xFF00D823),fontWeight: FontWeight.bold ),); // update previous result
+      }else{
+        previousResult=Text("High Risk",style: TextStyle(fontSize: iconSize*0.7,color:Colors.red,fontWeight: FontWeight.bold ),); //  update previous result
+        
+      }
       
+    });
       
     }
   }
