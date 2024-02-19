@@ -20,14 +20,14 @@ class NavbarState extends State<Navbar>{
     body: screens [index],
     bottomNavigationBar: NavigationBarTheme(
       data: NavigationBarThemeData(
-        indicatorColor: Colors.red.shade100,
+        indicatorColor: Colors.red.shade300,
         labelTextStyle: MaterialStateProperty.all(
           TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
         ),
       ),
       child: NavigationBar(
-        height: 60,
-        backgroundColor: Colors.red.shade300,
+        height: 72,
+        backgroundColor: Colors.red.shade100,
         selectedIndex: index,
         onDestinationSelected: (index) =>
           setState(() => this.index = index),
