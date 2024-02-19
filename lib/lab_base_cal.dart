@@ -17,225 +17,277 @@ main() {
 
         //box 1
 
-        if ((40 >= inputA && inputA <= 44) &&
+        if ((40<= inputA && inputA <= 44) &&
           (6.9>= chole) &&
           (SBP <120)) {
         return ("yellow");
       }
-      else if ((40 >= inputA && inputA <= 44) &&
+      else if ((40<= inputA && inputA <= 44) &&
           (6.9< chole) &&
           (SBP <120)) {
         return ("oranage");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (5.9>= chole) &&
           (SBP >=120 && SBP <=139 )) {
         return ("yellow");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40 <= inputA && inputA <= 44) &&
           (5.9>= chole) &&
           (SBP >=120 && SBP <=139 )) {
         return ("yellow");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (5.9< chole) &&
           (SBP >=120 && SBP <=139 )) {
         return ("orange");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (4> chole) &&
           (140 <=SBP && SBP <=159 )) {
         return ("yellow");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (4<= chole) &&
           (140 <=SBP && SBP <=159 )) {
         return ("orange");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (6.9>= chole) &&
           (160 <=SBP && SBP <=179 )) {
         return ("orange");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (6.9< chole) &&
           (160 <=SBP && SBP <=179 )) {
         return ("red");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (4.9>= chole) &&
           (180 <=SBP )) {
         return ("orange");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40<= inputA && inputA <= 44) &&
           (4.9< chole && chole<7) &&
           (180 <=SBP )) {
         return ("red");
-      }else if ((40 >= inputA && inputA <= 44) &&
+      }else if ((40 <= inputA && inputA <= 44) &&
           ( chole>=7) &&
           (180 <=SBP )) {
         return ("meroon");
       }
       //box 2
-      else if ((45>= inputA && inputA <= 49) &&
+      else if ((45<= inputA && inputA <= 49) &&
           ( chole<=5.9) &&
           (120>SBP )) {
         return ("yello");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole>5.9) &&
           (120>SBP )) {
         return ("orange");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole<4) &&
           (120<=SBP && SBP>=139 )) {
         return ("yellow");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole>=4) &&
           (120<=SBP && SBP>=139 )) {
         return ("orange");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole<=6.9) &&
           (140<=SBP && SBP>=159 )) {
         return ("orange");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole>6.9) &&
           (140<=SBP && SBP>=159 )) {
         return ("red");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole<=4.9) &&
           (160<=SBP && SBP>=179 )) {
         return ("orange");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole>4.9) &&
           (160<=SBP && SBP>=179 )) {
         return ("red");
-      }else if ((45>= inputA && inputA <= 49) &&
+      }else if ((45<= inputA && inputA <= 49) &&
           ( chole<=5.9) &&
           (180<=SBP)) {
         return ("meron");
       }
       //box 3
-      else if ((50>= inputA && inputA <= 54) &&
+      else if ((50<= inputA && inputA <= 54) &&
           ( chole<=4.9) &&
           (120>SBP)) {
         return ("yellow");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           ( chole>4.9) &&
           (120>SBP)) {
         return ("orange");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           ( chole>4.9 && chole <=4.9) &&
           (120<=SBP && SBP <=139)) {
         return ("orange");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           (chole <=5.9) &&
           (140<=SBP && SBP <=159)) {
         return ("orange");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           (chole >5.9) &&
           (140<=SBP && SBP <=159)) {
         return ("red");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           (chole <4) &&
           (160<=SBP && SBP <=179)) {
         return ("orange");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           (chole>=4 && chole <=6.9) &&
           (160<=SBP && SBP <=179)) {
         return ("red");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           (chole >6.9) &&
           (160<=SBP && SBP <=179)) {
         return ("meroon");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           (chole <=4.9) &&
           (180<=SBP )) {
         return ("red");
-      }else if ((50>= inputA && inputA <= 54) &&
+      }else if ((50<= inputA && inputA <= 54) &&
           (chole >4.9) &&
           (180<=SBP )) {
         return ("meroon");
       }
       //box4
-      else if ((55>= inputA && inputA <= 59) &&
+      else if ((55<= inputA && inputA <= 59) &&
           ( chole>4.9 && chole <=4.9) &&
           (120>SBP)) {
         return ("orange");
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole<5.9) &&
           (120<=SBP && SBP <=139)) {
         return ("orange");
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole >=5.9) &&
           (120<=SBP && SBP <=139)) {
         return ("red");
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole<4) &&
           (140<=SBP && SBP <=159)) {
         return ("orange");  
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole>=4 && chole <=6.9 ) &&
           (140<=SBP && SBP <=159)) {
         return ("red"); 
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole >=6.9 ) &&
           (140<=SBP && SBP <=159)) {
         return ("meron"); 
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole <=5.9 ) &&
           (160<=SBP && SBP <=179)) {
         return ("orange"); 
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole >5.9 ) &&
           (160<=SBP && SBP <=179)) {
         return ("M"); 
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole <4 ) &&
           (180<=SBP )) {
         return ("R"); 
-      }else if ((55>= inputA && inputA <= 59) &&
+      }else if ((55<= inputA && inputA <= 59) &&
           ( chole <4 ) &&
           (180<=SBP )) {
         return ("M"); 
       }
       //box 5
-      else if ((60>= inputA && inputA <= 64) &&
+      else if ((60<= inputA && inputA <= 64) &&
           ( chole <=5.9 ) &&
           (120>SBP )) {
         return ("O"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole >5.9 ) &&
           (120>SBP )) {
         return ("R"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole <4 ) &&
           (120<=SBP && SBP <=139 )) {
         return ("O"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole >=4 ) &&
           (120<=SBP && SBP <=139 )) {
         return ("R"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole <=5.9 ) &&
           (140<=SBP && SBP <=159 )) {
         return ("R"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole >5.9 ) &&
           (140<=SBP && SBP <=159 )) {
         return ("M"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole<4 ) &&
           (160<=SBP && SBP <=179 )) {
         return ("R"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole >=4 ) &&
           (160<=SBP && SBP <=179 )) {
         return ("M"); 
-      }else if ((60>= inputA && inputA <= 64) &&
+      }else if ((60<= inputA && inputA <= 64) &&
           ( chole >=4 && chole<4) &&
           (180<=SBP)) {
         return ("M"); 
       }//box6
-      
 
+      else if ((65<= inputA && inputA <= 69) &&
+          (chole<4) &&
+          (120>SBP)) {
+        return ("O"); 
+      }else if ((65<= inputA && inputA <= 69) &&
+          (chole>=4) &&
+          (120>SBP)) {
+        return ("R"); 
+      }else if ((65<= inputA && inputA <= 69) &&
+          (chole<=5.9) &&
+          (120<=SBP && SBP <=139)) {
+        return ("R"); 
+      }else if ((65<= inputA && inputA <= 69) &&
+          (chole<5.9) &&
+          (120<=SBP && SBP <=139)) {
+        return ("M"); 
+      }else if ((65<= inputA && inputA <= 69) &&
+          (chole<4) &&
+          (140<=SBP && SBP <=159)) {
+        return ("R"); 
+      }else if ((65<= inputA && inputA <= 69) &&
+          (chole>=4) &&
+          (140<=SBP && SBP <=159)) {
+        return ("M"); 
+      }else if ((65<= inputA && inputA <= 69) &&
+          (chole>=4 && chole<4) &&
+          (160<=SBP )) {
+        return ("M"); 
+      }
+      //box 7
+      else if ((70<= inputA && inputA <= 74) &&
+          (chole<=5.9) &&
+          (120>SBP )) {
+        return ("R");
 
-
-        
-
+      }else if ((70<= inputA && inputA <= 74) &&
+          (chole<=5.9) &&
+          (120>SBP )) {
+        return ("M"); 
+      }else if ((70<= inputA && inputA <= 74) &&
+          (chole<4) &&
+          (120<=SBP && SBP <=139 )) {
+        return ("R"); 
+      }else if ((70<= inputA && inputA <= 74) &&
+          (chole>=4) &&
+          (120<=SBP && SBP <=139 )) {
+        return ("M"); 
+      }else if ((70<= inputA && inputA <= 74) &&
+          (chole>=4 && chole<4) &&
+          (140<=SBP )) {
+        return ("M"); 
+      }
 
       }else{
-        //non smoke
+        //box 8
+        if ((40<= inputA && inputA <= 44) &&
+          ( chole<4) &&
+          (120>SBP )) {
+        return ("Y"); 
+      }
       }
 
 
