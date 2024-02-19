@@ -152,9 +152,17 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
 
   // predict cvd 
-
 void _predictCVDLevel(){
+  if(_formKey.currentState!.validate()){
+    print(_ageCVDController.text);
+    print(_genderCVDController.text);
 
+
+    String cvdLevel="High";
+
+    showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+
+  }
 }
 
 // clear input data
