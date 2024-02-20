@@ -1,4 +1,4 @@
-import 'package:cvd_risk_analyser/chart_choose_screen.dart';
+import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

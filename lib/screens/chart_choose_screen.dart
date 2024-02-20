@@ -1,4 +1,5 @@
-import 'package:cvd_risk_analyser/doctor_data_input_screen.dart';
+import 'package:cvd_risk_analyser/screens/doctor_data_input_screen.dart';
+import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 import 'package:flutter/material.dart';
 
 class ChartChoose extends StatelessWidget {
@@ -30,15 +31,15 @@ class ChartChoose extends StatelessWidget {
                 height: 20,
               ),
 
-              
+              //TODO remove test of user input screen
 
-              ChartChooseButton(name: "Laboratory Chart", moveScreen: DoctorInputScreen(),), // create object from class ChartChooseButton for choose chart
+              const ChartChooseButton(name: "Laboratory chart", moveScreen: UserInputScreen(name: "User")), // create object from class ChartChooseButton for choose chart
                 
               const SizedBox( // give extra space between widgets
                 height: 20,
               ),
 
-              ChartChooseButton(name: "Non Laboratory Chart", moveScreen: DoctorInputScreen(),), // create object from class ChartChooseButton for choose chart
+              const ChartChooseButton(name: "Non Laboratory chart",  moveScreen: DoctorInputScreen(number: 1,)), // create object from class ChartChooseButton for choose chart
            
             ],
           ),
@@ -52,7 +53,7 @@ class ChartChoose extends StatelessWidget {
 }
 
 
-// class for chart choosen button
+// class for chart chosen button
 class ChartChooseButton extends StatelessWidget {
   final Widget moveScreen; // type of chart screen
   final String name; // display name for button 
@@ -68,7 +69,7 @@ class ChartChooseButton extends StatelessWidget {
       style: ElevatedButton.styleFrom( // customized the button 
         backgroundColor: Colors.red,
         padding: const EdgeInsets.all(15),
-        fixedSize: const Size(280, 70), // chnage width and height 
+        fixedSize: const Size(280, 70), // change width and height
         ),
       child: Text(name,
         style: const TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.normal),
