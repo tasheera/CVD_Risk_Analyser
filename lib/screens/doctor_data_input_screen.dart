@@ -135,21 +135,21 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
                       buildRiskInputField("Age :","input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
 
-                      buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController), // create function // create input field
+                      buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController),// create input field
 
                       if (widget.number==1)buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
 
                       if (widget.number==1)buildRiskInputField("Weight :","insert in Kilograms", _isValidWeight,"Enter valid weight",TextInputType.number,_weightCVDController), // create input field
 
-                     buildRiskInputField("SBP Level :","input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.text,_sbpCVDController), // create function // create input field
+                     buildRiskInputField("SBP Level :","input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.number,_sbpCVDController), // create input field
 
 
                      if (widget.number==3) buildRiskInputField("Diabetic :","input diabetic level", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
 
                      if (widget.number==3) buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
-                    buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController), // create function // create input field
+                    buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or no only",TextInputType.text,_smokerCVDController), // create input field
 
 
                       const SizedBox(height: 10,),
@@ -162,7 +162,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                             
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,
-                              fixedSize: Size(iconSize*3.7, iconSize*1.1),
+                              fixedSize: Size(iconSize*3.82, iconSize*1.1),
                               
                             ),
                             onPressed: (){
