@@ -843,5 +843,111 @@ main() {
     }
   } else {
     //without diabites
+
+    if (input_G == "men") {
+      if (input_S == "smoke") {
+        if ((40 <= inputA && inputA <= 44) &&
+            (chole <4) &&
+            (SBP <120)) {
+          return ("G");
+        }
+        else if ((40 <= inputA && inputA <= 44) &&
+            (chole <4) &&
+            (SBP <120)) {
+          return ("Y");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole <=5.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("Y");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole >5.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("O");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole<=4.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("Y");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole>4.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("O");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole<=6.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("O");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole>6.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("R");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole>=4.9) &&
+            (SBP >=180)) {
+          return ("O");
+        }else if ((40 <= inputA && inputA <= 44) &&
+            (chole<4.9) &&
+            (SBP >=180)) {
+          return ("R");
+        }//box 9
+        else if ((45 <= inputA && inputA <= 49) &&
+            (chole<=5.9) &&
+            (SBP <120)) {
+          return ("Y");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole>5.9) &&
+            (SBP <120)) {
+          return ("O");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole<=4.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("Y");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole>4.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("O");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole<=6.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("O");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole>6.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("R");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole<=5.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("O");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole>5.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("R");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole<4) &&
+            (SBP >=180)) {
+          return ("O");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole>=4 && chole<=6.9) &&
+            (SBP >=180)) {
+          return ("R");
+        }else if ((45 <= inputA && inputA <= 49) &&
+            (chole>6.9) &&
+            (SBP >=180)) {
+          return ("M");
+        }//box 10
+        
+
+
+
+
+
+      } else {
+        //nonsmoke
+      }
+    } else {
+      //femail
+      if (input_S == "smoke") {
+      } else {
+        //nonsmoke
+      }
+    }
   }
 }
