@@ -1101,10 +1101,276 @@ main() {
 
       } else {
         //nonsmoke to do
+        if ((40<= inputA && inputA <=44) &&
+            (chole<=6.9) &&
+            (SBP <120)) {
+          return ("G");
+        }
+        else if ((40<= inputA && inputA <=44) &&
+            (chole>6.9) &&
+            (SBP <120)) {
+          return ("Y");
+        }else if ((40<= inputA && inputA <=44) &&
+            (chole<=5.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("G");
+        }else if ((40<= inputA && inputA <=44) &&
+            (chole>5.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("Y");
+        }else if ((40<= inputA && inputA <=44) &&
+            (chole<4) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("G");
+        }else if ((40<= inputA && inputA <=44) &&
+            (chole>=4) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("Y");
+        }
+        else if ((40<= inputA && inputA <=44) &&
+            (chole<=6.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("Y");
+        }else if ((40<= inputA && inputA <=44) &&
+            (chole>6.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("O");
+        }else if ((40<= inputA && inputA <=44) &&
+            (chole<=4.9) &&
+            (SBP >=180)) {
+          return ("Y");
+        }else if ((40<= inputA && inputA <=44) &&
+            (chole>4.9) &&
+            (SBP >=180)) {
+          return ("O");
+        }//box 2
+        else if ((45<= inputA && inputA <=49) &&
+            (chole<=5.9) &&
+            (SBP <120)) {
+          return ("G");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole>5.9) &&
+            (SBP <120)) {
+          return ("Y");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole<4) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("G");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole>=4) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("Y");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole<=6.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("Y");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole>6.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("O");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole<=4.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("Y");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole>4.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("O");
+        }else if ((45<= inputA && inputA <=49) &&
+            (chole>4.9 && chole<=4.9) &&
+            (SBP >=180)) {
+          return ("O");
+        }//box3
+        else if ((50<= inputA && inputA <=54) &&
+            (chole<4) &&
+            (SBP <120)) {
+          return ("G");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole>=4) &&
+            (SBP <120)) {
+          return ("Y");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole<=6.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("Y");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole>6.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("O");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole<=4.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("Y");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole>4.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("O");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole>4.9 && chole <=4.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("O");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole <=5.9) &&
+            (SBP >=180)) {
+          return ("O");
+        }else if ((50<= inputA && inputA <=54) &&
+            (chole <5.9) &&
+            (SBP >=180)) {
+          return ("R");
+        }//box 4
+        else if ((55<= inputA && inputA <=59) &&
+            (chole <=5.9) &&
+            (SBP <120)) {
+          return ("Y");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole >5.9) &&
+            (SBP <120)) {
+          return ("O");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole<=4.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("Y");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole>4.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("O");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole>4.9 && chole<=4.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("O");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole<=5.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("O");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole>5.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("R");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole<4) &&
+            (SBP >=180)) {
+          return ("O");
+        }else if ((55<= inputA && inputA <=59) &&
+            (chole>=4) &&
+            (SBP >=180)) {
+          return ("R");
+        }//bpx 5
+        else if ((60<= inputA && inputA <=64) &&
+            (chole<4) &&
+            (SBP <120)) {
+          return ("Y");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole>=4) &&
+            (SBP <120)) {
+          return ("O");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole>=4 && chole <4) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("O");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole<=5.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("O");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole>5.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("R");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole<4) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("O");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole>=4) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("R");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole<=5.9) &&
+            (SBP >=180 )) {
+          return ("R");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole>5.9) &&
+            (SBP >=180 )) {
+          return ("M");
+        }//box 6
+        else if ((65<= inputA && inputA <=69) &&
+            (chole<=6.9) &&
+            (SBP <120 )) {
+          return ("O");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>6.9) &&
+            (SBP <120 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole<=5.9) &&
+            (SBP >=120 && SBP <=139 )) {
+          return ("O");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>5.9) &&
+            (SBP >=120 && SBP <=139 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole<4) &&
+            (SBP >=140 && SBP <=159 )) {
+          return ("O");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>=4) &&
+            (SBP >=140 && SBP <=159 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole<=5.9) &&
+            (SBP >=160 && SBP <=179 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole<5.9) &&
+            (SBP >=160 && SBP <=179 )) {
+          return ("M");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole<4) &&
+            (SBP >=180 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>=4) &&
+            (SBP >=180 )) {
+          return ("M");
+        }//box 7
+        else if ((70<= inputA && inputA <=74) &&
+            (chole<=4.9) &&
+            (SBP <120 )) {
+          return ("O");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole>4.9) &&
+            (SBP <120 )) {
+          return ("R");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole<=6.9) &&
+            (SBP >=120 && SBP <=139 )) {
+          return ("R");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole>=6.9) &&
+            (SBP >=120 && SBP <=139 )) {
+          return ("M");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole<=4.9) &&
+            (SBP >=140 && SBP <=159 )) {
+          return ("R");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole>4.9) &&
+            (SBP >=140 && SBP <=159 )) {
+          return ("M");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole>4.9 && chole>=4.9) &&
+            (SBP >=160)) {
+          return ("M");
+        }
+
+
       }
     } else {
+
       //femail
       if (input_S == "smoke") {
+
+        //here
       } else {
         //nonsmoke
       }
