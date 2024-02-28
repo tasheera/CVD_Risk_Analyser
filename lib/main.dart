@@ -1,4 +1,4 @@
-import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
+import 'package:cvd_risk_analyser/HomePage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "CVD Risk Analyser",
-      home: ChartChoose(),
+      home: HomePage(),
     );
   }
 }
