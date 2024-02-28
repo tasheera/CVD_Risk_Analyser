@@ -1,3 +1,5 @@
+import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
+import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -41,7 +43,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                       'CVD',
                       style: TextStyle(
                         fontSize: 45,
@@ -49,7 +51,7 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Analysis',
                       style: TextStyle(
                         fontSize: 30,
@@ -57,8 +59,8 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 120),
-                    Text(
+                    const SizedBox(height: 120),
+                    const Text(
                       'Live Healthy Life',
                       style: TextStyle(
                         fontSize: 15,
@@ -66,7 +68,7 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Be Happy!',
                       style: TextStyle(
                         fontSize: 15,
@@ -74,21 +76,25 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     SizedBox(
                       width: 251,
                       height: 70,
                       child: ElevatedButton(
                         onPressed: () {
-                          //login functionality
+                          //TODO Link login screen
+                            Navigator.of(context).push(MaterialPageRoute(builder:(_){
+                              return const ChartChoose();
+                            }));
+
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFD80032), // Set button color
+                          backgroundColor: const Color(0xFFD80032), // Set button color
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'LOGIN',
                           style: TextStyle(
                             fontSize: 20,
@@ -98,21 +104,24 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     SizedBox(
                       width: 251,
                       height: 70,
                       child: ElevatedButton(
                         onPressed: () {
-                          //"Use as a guest" functionality
+                          Navigator.of(context).push(MaterialPageRoute(builder:(_){
+                            return const UserInputScreen(name: "User");
+                          }));
+
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFD80032), // Set button color
+                          backgroundColor: const Color(0xFFD80032), // Set button color
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'USE AS A GUEST',
                           style: TextStyle(
                             fontSize: 20,
