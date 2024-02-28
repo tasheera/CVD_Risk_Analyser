@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -84,7 +83,7 @@ class HomePage extends StatelessWidget {
                           //login functionality
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xFFD80032), // Set button color
+                          backgroundColor: Color(0xFFD80032), // Set button color
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
@@ -108,7 +107,7 @@ class HomePage extends StatelessWidget {
                           //"Use as a guest" functionality
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xFFD80032), // Set button color
+                          backgroundColor: Color(0xFFD80032), // Set button color
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
