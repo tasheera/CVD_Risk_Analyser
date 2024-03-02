@@ -31,7 +31,8 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
   @override
   Widget build(BuildContext context) {
-    double iconSize = MediaQuery.of(context).size.width * 0.08; // return current screen width 
+        double iconSize=40;
+    if (MediaQuery.of(context).size.width*0.08<40) iconSize = MediaQuery.of(context).size.width * 0.08; // return current screen width 
     String chartType= widget.number==3 ? "Lab chart" : "Non- Lab chart";
     
     DateTime dt = DateTime.now();
@@ -88,7 +89,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         
 
                     Text(
-                      "Dr name\n position and hospital",
+                      "Dr name\n position\n hospital",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: iconSize*0.57,
@@ -133,7 +134,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                     crossAxisAlignment: CrossAxisAlignment.start,// left align text
                     children: [
 
-                      buildRiskInputField("Age :","input age between 20 and 80", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
+                      buildRiskInputField("Age :","input age ", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
 
                       buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController),// create input field
 
