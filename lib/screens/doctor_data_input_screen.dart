@@ -1,5 +1,6 @@
 
 import 'package:cvd_risk_analyser/calculation.dart';
+import 'package:cvd_risk_analyser/firebase_functions.dart';
 import 'package:flutter/material.dart';
 
 import 'input_screen_functions.dart';
@@ -207,27 +208,34 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
   void calculateRiskLevel(double iconSize){
 
+    String ageCVD=_ageCVDController.text;
+    String genderCVD=_genderCVDController.text;
+    String sbpCVD=_sbpCVDController.text;
+    String smokeCVD= _smokerCVDController.text;
+
+    String heightCVD= _heightCVDController.text;
+    String weightCVD= _weightCVDController.text;
+    String diabeticCVD= _diabeticCVDController.text;
+    String cholesterolCVD= _cholesterolCVDController.text;
+
+    String cvdLevel="";
+
+
+
     if(_formKey.currentState!.validate()){ // check validity of foam filed
-      print(_ageCVDController.text);
-      print(_genderCVDController.text);
-      print(_sbpCVDController.text);
-      print(_smokerCVDController.text);
 
-
-
-      if (widget.number==1){ // check chart type
-              print(_heightCVDController.text);
-      print(_weightCVDController.text);
+      if (widget.number==1){ // check chart type (non lab)
+        cvdLevel=calculation(ageCVD, genderCVD, heightCVD, weightCVD, sbpCVD, smokeCVD);
       }
 
-      if (widget.number==3){// check chart type
-        print(_diabeticCVDController.text);        
-        }
-
+      if (widget.number==3){// check chart type (lab)
         //ToDO add correct details to cvd result
+        cvdLevel="Not yet developed";
+      }
+
+        
 
         // get cvd level from calculation
-        String cvdLevel=calculation(_ageCVDController.text, _genderCVDController.text, _heightCVDController.text, _weightCVDController.text, _sbpCVDController.text, _smokerCVDController.text);
 
       // call function to show cvd level
       showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
@@ -240,6 +248,14 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
       }
       
     });
+
+    if (widget.number==1){ // check chart type
+        uploadNonLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, sbpCVD, smokeCVD, cvdLevel);
+      }
+
+      if (widget.number==3){// check chart type
+        uploadLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, diabeticCVD, cholesterolCVD, cvdLevel );
+        }
       
     }
   }
@@ -249,6 +265,10 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
     _genderCVDController.clear();
     _heightCVDController.clear();
     _weightCVDController.clear();
+    _cholesterolCVDController.clear();
+    _sbpCVDController.clear();
+    _smokerCVDController.clear();
+    _diabeticCVDController.clear();
 }
 }
 
