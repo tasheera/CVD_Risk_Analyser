@@ -15,7 +15,10 @@ class _SignupScreenState extends State<SignupScreen> {
 
   final GlobalKey <FormState> _formKey =GlobalKey();// create global key object form key validate
 
-
+  
+  final TextEditingController _signupEmailController = TextEditingController(); // controller for email text field
+  final TextEditingController _signupPasswordController = TextEditingController(); // controller for password text field
+  final TextEditingController _signupCodeController = TextEditingController();// controller for code text field
 
 
   @override
@@ -42,7 +45,41 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Text("Email address", textAlign: TextAlign.left, style: TextStyle(fontSize: 18, color: Colors.blue),),
+                TextFormField(
+                  controller: _signupEmailController,
+                  decoration: InputDecoration(
+                    hintText: "someone@email.com",
+                    hintStyle: TextStyle(color: Colors.grey)
+                    
+                  ),
+                ),
 
+                const SizedBox(height: 20),
+
+                Text("Password", textAlign: TextAlign.left, style: TextStyle(fontSize: 18, color: Colors.blue),),
+                TextFormField(
+                  controller: _signupPasswordController,
+                  decoration: InputDecoration(
+                    hintText: "password",
+                    hintStyle: TextStyle(color: Colors.grey)
+                    
+                  ),
+                ),
+
+               const SizedBox(height: 20),
+
+               Text("Code number", textAlign: TextAlign.left, style: TextStyle(fontSize: 18, color: Colors.blue),),
+                TextFormField(
+                  controller: _signupCodeController,
+                  decoration: InputDecoration(
+                    hintText: "8 digit number",
+                    hintStyle: TextStyle(color: Colors.grey)
+                    
+                  ),
+                ),
+
+                const SizedBox(height: 20,),
 
 
                    
