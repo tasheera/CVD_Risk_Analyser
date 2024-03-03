@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "373253484293",
+    "project_id": "cvdriskanalysis-4cc3d",
+    "storage_bucket": "cvdriskanalysis-4cc3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373253484293:android:c2c3d60d175b8a68ec916c",
+        "android_client_info": {
+          "package_name": "com.example.cvd_risk_analyser"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALLGR9Yzp_J-p2Y8hj74TZUCPgJWHp2GQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

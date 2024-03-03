@@ -1,5 +1,6 @@
 import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
+import 'package:cvd_risk_analyser/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -59,7 +60,7 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 120),
+                    const SizedBox(height: 80),
                     const Text(
                       'Live Healthy Life',
                       style: TextStyle(
@@ -131,6 +132,25 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Don’t have an account?", style: TextStyle(color: Colors.grey),),
+
+                        TextButton(
+                          onPressed:  () {
+                            Navigator.of(context).push(MaterialPageRoute(builder:(_){ // path to move next screen
+                              return const SignupScreen();
+                            }));
+                          },
+                         child: Text("Sign up!")
+                         ),
+                        
+                        
+                      ],
+                    )
                   ],
                 ),
               ),
