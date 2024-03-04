@@ -282,13 +282,17 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
       
     });
 
-    if (widget.number==1){ // check chart type
+    if (colorOfCVD!="Error"){
+          if (widget.number==1){ // check chart type
         uploadNonLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, sbpCVD, smokeCVD, colorOfCVD);
       }
 
       if (widget.number==3){// check chart type
         uploadLabchartData(ageCVD, genderCVD, sbpCVD, diabeticCVD, cholesterolCVD, smokeCVD, colorOfCVD );
         }
+    }
+
+
       
     }
   }
@@ -337,7 +341,7 @@ bool _isValidHeight(String input) {
 
 bool _isValidWeight(String input) {
   try {
-        int weight = int.parse(input); // check input is valid or not
+        double weight = double.parse(input); // check input is valid or not
         return weight > 30 && weight <= 150; // check reasonable range
   } catch (e) {
 
@@ -348,8 +352,8 @@ bool _isValidWeight(String input) {
 
 bool _isValidSBP(String input) {
   try {
-        double height = double.parse(input); // check input is valid or not
-        return height > 0 && height <= 180; // check reasonable range
+        double sbp = double.parse(input); // check input is valid or not
+        return sbp> 0 && sbp <= 300; // check reasonable range
   } catch (e) {
 
     return false; // if there is any error ,return false
@@ -367,8 +371,8 @@ bool _isValidSmoker(String input) {
 
 bool _isValidCholesterol(String input) {
   try {
-        double height = double.parse(input); // check input is valid or not
-        return height > 0 && height <= 10; // check reasonable range
+        double choc = double.parse(input); // check input is valid or not
+        return choc > 0 && choc <= 10; // check reasonable range
   } catch (e) {
 
     return false; // if there is any error ,return false

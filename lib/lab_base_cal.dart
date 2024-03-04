@@ -1,13 +1,13 @@
 String calculationLabBase(String age, String gender, String SBPP, String diabetic, String cholesterol,  String smoke){
   //lab base chart
 
-  var input_D = int.parse(diabetic); // with diabets
+  var input_D = double.parse(diabetic); // with diabets
   String input_G = gender=="male"? "men": "no";; // about gender
   String input_S = smoke =="yes"? "Smoke": "no";; // about smoke
 
   var inputA = int.parse(age); //for age
-  var SBP = int.parse(SBPP);
-  var chole = int.parse(cholesterol);
+  var SBP = double.parse(SBPP);
+  var chole = double.parse(cholesterol);
 
   if (input_D > 125) {
     if (input_G == "men") {

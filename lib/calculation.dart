@@ -1,17 +1,17 @@
 
 String calculation(String age, String gender, String height, String weight, String SBPP, String smoke){
-  //lab base chart
+  //Non lab base chart
 
   //get weight
-  var inputw = int.parse(weight);
-  var inputh = int.parse(height);
+  var inputw = double.parse(weight);
+  var inputh = (double.parse(height))/100;
   var BMI = inputw / (inputh * inputh);
 
   //input1=men or female
   String input1 = gender=="male"? "men": "no"; //getting frountend
   String input2 = smoke =="yes"? "Smoke": "no"; //for smoke or not
   var inputA = int.parse(age); //for age
-  var SBP = int.parse(SBPP);
+  var SBP = double.parse(SBPP);
 
   if (input1 == "men") {
     if (input2 == "Smoke") {
