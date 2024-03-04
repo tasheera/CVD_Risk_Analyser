@@ -1489,10 +1489,10 @@ main() {
             (SBP <=180)) {
           return ("M");
         }//box19
-        else if ((55<= inputA && inputA <=59) &&
-            ( chole<=5.9 ) &&
-            (SBP <=180)) {
-          return ("R");
+        else if ((60<= inputA && inputA <=64) &&
+            ( chole<=5.9 && chole>5.9 ) &&
+            (SBP <120)) {
+          return ("O");
         }
 
         
