@@ -1,3 +1,4 @@
+import 'package:cvd_risk_analyser/prediction_data_save_and_retrive_functions.dart';
 import 'package:flutter/material.dart';
 import 'input_screen_functions.dart';
 
@@ -30,7 +31,8 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double iconSize = MediaQuery.of(context).size.width * 0.08; // return current screen width 
+    double iconSize=40;
+    if (MediaQuery.of(context).size.width*0.08<40) iconSize = MediaQuery.of(context).size.width * 0.08; // return current screen width 
 
 
     return Scaffold(
@@ -122,7 +124,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
                     buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_alcoholCVDController), // create input field
 
-                    buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_physicalCVDController), // create input field
+                    buildRiskInputField("Physical active :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_physicalCVDController), // create input field
 
 
                    const SizedBox(height: 10,),
@@ -180,16 +182,34 @@ class _UserInputScreenState extends State<UserInputScreen> {
   // predict cvd 
 void _predictCVDLevel(double iconSize){
   if(_formKey.currentState!.validate()){
-    print(_ageCVDController.text);
-    print(_genderCVDController.text);
+
+    String predictAge=_ageCVDController.text;
+    String predictGender=_genderCVDController.text;
+    String predictWeight=_weightCVDController.text;
+    String predictHeight=_heightCVDController.text;
+    String predictSbp=_apHiCVDController.text;
+    String predictDbp=_apLoCVDController.text;
+    String predictChorestrol= _cholesterolCVDController.text;
+    String predictSbpt =_apHiCVDController.text;
+    String predictGlucose= _glucoseCVDController.text;
+    String predictSmoke= _smokerCVDController.text;
+    String predictAlcohol= _alcoholCVDController.text;
+
 
     //TODO link ml prediction function
     String cvdLevel="High Risk";
 
+
+    if (cvdLevel=="Low Risk"){// check cvd level
     showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
+    }else{
+    showCVDRiskLevel(context,cvdLevel,'Yor are in a Risk', const Color.fromARGB(255, 216, 88, 79),Colors.red); // call result display pop up box
+      
+    }
+
 
           setState(() {
-        if (cvdLevel=="low"){// check cvd level
+        if (cvdLevel=="Low Risk"){// check cvd level
         previousResult=Text("Low Risk",style: TextStyle(fontSize: iconSize*0.7,color:Color(0xFF00D823),fontWeight: FontWeight.bold ),); // update previous result
       }else{
         previousResult=Text("High Risk",style: TextStyle(fontSize: iconSize*0.7,color:Colors.red,fontWeight: FontWeight.bold ),); //  update previous result
@@ -197,6 +217,9 @@ void _predictCVDLevel(double iconSize){
       }
       
     });
+
+
+    saveData(predictAge, predictGender, predictWeight, predictHeight, predictSbp, predictDbp, predictChorestrol, predictSbpt, predictGlucose, predictSmoke, predictAlcohol, cvdLevel);    
     
 
   }
