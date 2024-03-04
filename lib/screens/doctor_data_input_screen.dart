@@ -248,9 +248,27 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         percentageOfCVD="<5%";
         showUpBoxColor=Colors.green;
         showUpBoxBackgroundColor= const Color.fromARGB(255, 152, 196, 153);
+      }else if(cvdLevel== "Y"){
+        colorOfCVD="Yellow";
+        showUpBoxColor=const Color.fromARGB(255, 207, 190, 37);
+        percentageOfCVD=" 5% to 10%";
+        showUpBoxBackgroundColor =Color.fromARGB(255, 228, 214, 88);
+      }else if(cvdLevel== "O"){
+        colorOfCVD="Orange";
+        showUpBoxColor=Colors.orange;
+        percentageOfCVD=" 10% to 20%";
+        showUpBoxBackgroundColor=  Color.fromARGB(255, 226, 177, 104);
+      }else if(cvdLevel== "R"){
+        colorOfCVD="Red";
+        showUpBoxColor=Colors.red;
+        percentageOfCVD=" 20% to 30%";
+        showUpBoxBackgroundColor= const Color.fromARGB(255, 235, 123, 115);
+      }else if(cvdLevel== "M"){
+        colorOfCVD="Maroon";
+        showUpBoxColor=Color(0XFF7b1113);
+        percentageOfCVD=" >30%";
+        showUpBoxBackgroundColor= Color.fromARGB(255, 209, 54, 57);
       }
-      print(cvdLevel);
-
       
 
       // call function to show cvd level
