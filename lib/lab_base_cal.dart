@@ -1,15 +1,13 @@
-import 'dart:io';
-
-main() {
+String calculationLabBase(String age, String gender, String SBPP, String diabetic, String cholesterol,  String smoke){
   //lab base chart
 
-  var input_D = 1; // with diabets
-  String input_G = " ."; // about gender
-  String input_S = "."; // about smoke
+  var input_D = int.parse(diabetic); // with diabets
+  String input_G = gender=="male"? "men": "no";; // about gender
+  String input_S = smoke =="yes"? "Smoke": "no";; // about smoke
 
-  var inputA = 1; //for age
-  var SBP = 1;
-  var chole = 1;
+  var inputA = int.parse(age); //for age
+  var SBP = int.parse(SBPP);
+  var chole = int.parse(cholesterol);
 
   if (input_D > 125) {
     if (input_G == "men") {
@@ -1781,4 +1779,5 @@ main() {
       }
     }
   }
+  return "error";
 }
