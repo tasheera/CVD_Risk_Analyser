@@ -1,6 +1,7 @@
 
 import 'package:cvd_risk_analyser/calculation.dart';
 import 'package:cvd_risk_analyser/firebase_functions.dart';
+import 'package:cvd_risk_analyser/lab_base_cal.dart';
 import 'package:flutter/material.dart';
 
 import 'input_screen_functions.dart';
@@ -220,7 +221,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
     String cvdLevel="";
 
-
+    // get cvd level from calculation
 
     if(_formKey.currentState!.validate()){ // check validity of foam filed
 
@@ -229,23 +230,37 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
       }
 
       if (widget.number==3){// check chart type (lab)
-        //ToDO add correct details to cvd result
-        cvdLevel="Not yet developed";
+        cvdLevel=calculationLabBase(ageCVD, genderCVD, sbpCVD, diabeticCVD, cholesterolCVD, smokeCVD);
       }
 
-        
+      String colorOfCVD="Error";
 
-        // get cvd level from calculation
+      Color showUpBoxColor=Colors.black;
+
+      String percentageOfCVD="Error";
+
+      Color showUpBoxBackgroundColor=Colors.black;
+
+
+
+      if (cvdLevel== "G"){
+        colorOfCVD="Green";
+        percentageOfCVD="<5%";
+        showUpBoxColor=Colors.green;
+        showUpBoxBackgroundColor= const Color.fromARGB(255, 152, 196, 153);
+      }
+      print(cvdLevel);
+
+      
 
       // call function to show cvd level
-      showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
-      setState(() {
-        if (cvdLevel=="low"){// check cvd level
-        previousResult=Text("Low Risk",style: TextStyle(fontSize: iconSize*0.7,color:Color(0xFF00D823),fontWeight: FontWeight.bold ),); // update previous result
-      }else{
-        previousResult=Text("High Risk",style: TextStyle(fontSize: iconSize*0.7,color:Colors.red,fontWeight: FontWeight.bold ),); //  update previous result
-        
-      }
+      showCVDRiskLevel(context,colorOfCVD,"Risk Level:- $percentageOfCVD", showUpBoxBackgroundColor,showUpBoxColor); // call result display pop up box
+
+
+
+      setState(() { // update privious result
+        previousResult=Text(colorOfCVD,style: TextStyle(fontSize: iconSize*0.7,color:showUpBoxColor,fontWeight: FontWeight.bold ),); // update previous result
+
       
     });
 
