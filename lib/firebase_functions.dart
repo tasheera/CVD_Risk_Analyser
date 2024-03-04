@@ -1,11 +1,11 @@
 
 
-void uploadLabchartData( String ageCVD, String genderCVD, String heightCVD, String weightCVD, String diabeticCVD, String cholesterolCVD , String cvdLevel ){ 
+void uploadLabchartData( String age, String gender, String SBPP, String diabetic, String cholesterol,  String smoke , String cvdLevel ){
   //TODO firebase data upload
    print ("LabChart data upload, CVD level =  $cvdLevel");
 }
 
-void uploadNonLabchartData( String ageCVD, String genderCVD, String heightCVD, String weightCVD, String sbpCVD, String smokeCVD, String cvdLevel){
+void uploadNonLabchartData( String age, String gender, String height, String weight, String SBPP, String smoke, String cvdLevel){
  //TODO firebase data upload
  print ("NonLabChart data upload,  CVD level =  $cvdLevel");
 }

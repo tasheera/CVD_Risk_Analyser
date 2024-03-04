@@ -252,12 +252,12 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         colorOfCVD="Yellow";
         showUpBoxColor=const Color.fromARGB(255, 207, 190, 37);
         percentageOfCVD=" 5% to 10%";
-        showUpBoxBackgroundColor =Color.fromARGB(255, 228, 214, 88);
+        showUpBoxBackgroundColor =const Color.fromARGB(255, 228, 214, 88);
       }else if(cvdLevel== "O"){
         colorOfCVD="Orange";
         showUpBoxColor=Colors.orange;
         percentageOfCVD=" 10% to 20%";
-        showUpBoxBackgroundColor=  Color.fromARGB(255, 226, 177, 104);
+        showUpBoxBackgroundColor=  const Color.fromARGB(255, 226, 177, 104);
       }else if(cvdLevel== "R"){
         colorOfCVD="Red";
         showUpBoxColor=Colors.red;
@@ -265,9 +265,9 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         showUpBoxBackgroundColor= const Color.fromARGB(255, 235, 123, 115);
       }else if(cvdLevel== "M"){
         colorOfCVD="Maroon";
-        showUpBoxColor=Color(0XFF7b1113);
+        showUpBoxColor=const Color(0XFF7b1113);
         percentageOfCVD=" >30%";
-        showUpBoxBackgroundColor= Color.fromARGB(255, 209, 54, 57);
+        showUpBoxBackgroundColor= const Color.fromARGB(255, 209, 54, 57);
       }
       
 
@@ -276,18 +276,18 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
 
 
-      setState(() { // update privious result
+      setState(() { // update previous result
         previousResult=Text(colorOfCVD,style: TextStyle(fontSize: iconSize*0.7,color:showUpBoxColor,fontWeight: FontWeight.bold ),); // update previous result
 
       
     });
 
     if (widget.number==1){ // check chart type
-        uploadNonLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, sbpCVD, smokeCVD, cvdLevel);
+        uploadNonLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, sbpCVD, smokeCVD, colorOfCVD);
       }
 
       if (widget.number==3){// check chart type
-        uploadLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, diabeticCVD, cholesterolCVD, cvdLevel );
+        uploadLabchartData(ageCVD, genderCVD, sbpCVD, diabeticCVD, cholesterolCVD, smokeCVD, colorOfCVD );
         }
       
     }
