@@ -1493,51 +1493,92 @@ main() {
             ( chole<=5.9 && chole>5.9 ) &&
             (SBP <120)) {
           return ("O");
+        }else if ((60<= inputA && inputA <=64) &&
+            ( chole<=5.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("O");
+        }else if ((60<= inputA && inputA <=64) &&
+            ( chole>5.9) &&
+            (SBP >=120 && SBP <=139)) {
+          return ("R");
+        }else if ((60<= inputA && inputA <=64) &&
+            ( chole>5.9 && chole<=5.9) &&
+            (SBP >=140 && SBP <=159)) {
+          return ("R");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole<=6.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("R");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole>6.9) &&
+            (SBP >=160 && SBP <=179)) {
+          return ("M");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole<4) &&
+            (SBP >=180 )) {
+          return ("R");
+        }else if ((60<= inputA && inputA <=64) &&
+            (chole<=4) &&
+            (SBP >=180 )) {
+          return ("M");
         }
-
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //box 20
+        else if ((65<= inputA && inputA <=69) &&
+            (chole<=4.9) &&
+            (SBP <120 )) {
+          return ("O");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>4.9) &&
+            (SBP <120 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>4.9 && chole<=4.9) &&
+            (SBP >=120 && SBP <=139 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole<=6.9) &&
+            (SBP >=140 && SBP <=159 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>6.9) &&
+            (SBP >=140 && SBP <=159 )) {
+          return ("M");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole<4) &&
+            (SBP >=160 && SBP <=179 )) {
+          return ("R");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>=4) &&
+            (SBP >=160 && SBP <=179 )) {
+          return ("M");
+        }else if ((65<= inputA && inputA <=69) &&
+            (chole>=4 && chole<4) &&
+            (SBP >=180 )) {
+          return ("M");
+        }//box 21
+        else if ((70<= inputA && inputA <=74) &&
+            (chole>=4 && chole<4) &&
+            (SBP <120 )) {
+          return ("R");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole>=6.9) &&
+            (SBP >=120 && SBP <=139 )) {
+          return ("R");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole<6.9) &&
+            (SBP >=120 && SBP <=139 )) {
+          return ("M");
+        }else if ((70<= inputA && inputA <=74) &&
+            (chole<6.9 && chole >=6.9) &&
+            (SBP >=140)) {
+          return ("M");
+        }
 
 
         //here
       } else {
+
+        
         //nonsmoke
       }
     }
