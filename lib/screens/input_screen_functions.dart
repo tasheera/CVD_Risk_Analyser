@@ -82,7 +82,7 @@ Widget buildRiskInputField(String labelName, String fieldName, validationFunctio
 
             validator: (value){  // validate use input
               if (value == null || value.isEmpty){// check null or is empty
-                return "Can not empty";
+                return "Can not be left empty";
               }
               if(!validationFunction(value)){ // assign validate function
                 return error; // error message to show

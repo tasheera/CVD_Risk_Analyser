@@ -1,6 +1,7 @@
 import 'package:cvd_risk_analyser/prediction_data_save_and_retrive_functions.dart';
 import 'package:flutter/material.dart';
 import 'input_screen_functions.dart';
+import 'package:cvd_risk_analyser/ml_model_predictions.dart';
 
 class UserInputScreen extends StatefulWidget {
   final String name;
@@ -112,13 +113,13 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
                     buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
-                    buildRiskInputField("Systolic blood pressure :","insert pressure", _isValidHeight,"Enter valid pressure",TextInputType.number,_apHiCVDController), // create input field
+                    buildRiskInputField("Systolic blood pressure :","insert pressure (mmHg)", _isValidHeight,"Enter valid pressure",TextInputType.number,_apHiCVDController), // create input field
 
-                    buildRiskInputField("Diastolic blood pressure :","insert pressure", _isValidHeight,"Enter valid pressure",TextInputType.number,_apLoCVDController), // create input field
+                    buildRiskInputField("Diastolic blood pressure :","insert pressure (mmHg)", _isValidHeight,"Enter valid pressure",TextInputType.number,_apLoCVDController), // create input field
 
-                    buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidHeight,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+                    buildRiskInputField("Cholesterol level :","insert cholesterol level (mmol/L)", _isValidHeight,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
-                    buildRiskInputField("Glucose level :","insert glucose level", _isValidHeight,"Enter valid glucose level",TextInputType.number,_glucoseCVDController), // create input field
+                    buildRiskInputField("Glucose level :","insert glucose level (mmol/L)", _isValidHeight,"Enter valid glucose level",TextInputType.number,_glucoseCVDController), // create input field
 
                     buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController),  // create input field
 
@@ -180,7 +181,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
 
   // predict cvd 
-void _predictCVDLevel(double iconSize){
+void _predictCVDLevel(double iconSize)async{
   if(_formKey.currentState!.validate()){
 
     String predictAge=_ageCVDController.text;
@@ -190,20 +191,37 @@ void _predictCVDLevel(double iconSize){
     String predictSbp=_apHiCVDController.text;
     String predictDbp=_apLoCVDController.text;
     String predictChorestrol= _cholesterolCVDController.text;
-    String predictSbpt =_apHiCVDController.text;
     String predictGlucose= _glucoseCVDController.text;
     String predictSmoke= _smokerCVDController.text;
     String predictAlcohol= _alcoholCVDController.text;
+    String predictPhysical= _physicalCVDController.text;
+    
+    
+    //ML  model object
+    final cvdRiskModel = CvdRiskModel();
+    
+    // load model
+    await cvdRiskModel.loadModel();
 
+    // predict cvd risk
+    double predictedRisk = await cvdRiskModel.predictCvdRisk(int.parse(predictAge), predictGender, int.parse(predictWeight), int.parse(predictHeight), int.parse(predictSbp), int.parse(predictDbp), double.parse(predictChorestrol), double.parse(predictGlucose), predictSmoke, predictAlcohol, predictPhysical);
 
-    //TODO link ml prediction function
-    String cvdLevel="High Risk";
+    //dispose model
+    cvdRiskModel.dispose();
+
+    //assign cvd level
+    String cvdLevel="";
+    if (predictedRisk<0.5){
+      cvdLevel="Low Risk";
+    }else if (predictedRisk>=0.5){
+      cvdLevel="High Risk";
+    }
 
 
     if (cvdLevel=="Low Risk"){// check cvd level
     showCVDRiskLevel(context,cvdLevel,'Risk of having a CVD in the near future is VERY LOW...!!', const Color(0XFFB6FFB0),const Color(0xFF00D823)); // call result display pop up box
     }else{
-    showCVDRiskLevel(context,cvdLevel,'Yor are in a Risk', const Color.fromARGB(255, 216, 88, 79),Colors.red); // call result display pop up box
+    showCVDRiskLevel(context,cvdLevel,'You are at Risk', const Color.fromARGB(255, 216, 88, 79),Colors.red); // call result display pop up box
       
     }
 
@@ -219,7 +237,7 @@ void _predictCVDLevel(double iconSize){
     });
 
 
-    saveData(predictAge, predictGender, predictWeight, predictHeight, predictSbp, predictDbp, predictChorestrol, predictSbpt, predictGlucose, predictSmoke, predictAlcohol, cvdLevel);    
+    saveData(predictAge, predictGender, predictWeight, predictHeight, predictSbp, predictDbp, predictChorestrol, predictGlucose, predictSmoke, predictAlcohol,predictPhysical, cvdLevel);    
     
 
   }

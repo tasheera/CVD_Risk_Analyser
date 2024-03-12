@@ -148,9 +148,9 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                      buildRiskInputField("SBP Level :","input SBP (mmHg) ", _isValidSBP,"Enter valid SBP level",TextInputType.number,_sbpCVDController), // create input field
 
 
-                     if (widget.number==3) buildRiskInputField("Diabetic :","input diabetic level", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
+                     if (widget.number==3) buildRiskInputField("Diabetic :","input diabetic level (mmol/L)", _isValidSBP,"Enter valid Diabetic",TextInputType.number,_diabeticCVDController), // create input field
 
-                     if (widget.number==3) buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+                     if (widget.number==3) buildRiskInputField("Cholesterol level :","insert cholesterol level (mmol/L)", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
                     buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or no only",TextInputType.text,_smokerCVDController), // create input field
 
@@ -362,7 +362,7 @@ bool _isValidSBP(String input) {
 
 
 bool _isValidSmoker(String input) {
-  if (input.toLowerCase()=="yes" || input.toLowerCase()=="no"){ //  check male or female
+  if (input.toLowerCase()=="yes" || input.toLowerCase()=="no"){ //  check smoker or not
     return true;
   }
   return false;
