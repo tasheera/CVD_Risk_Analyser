@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'main.dart';
+import 'firebase_options.dart';
+  
 // Function to upload lab chart data to Firestore
 Future<void> uploadLabchartData(
   String age, String gender, String sbpp, String diabetic, String cholesterol, String smoke, String cvdLevel) async {
