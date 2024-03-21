@@ -1,20 +1,6 @@
+import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp ());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Foam Widget",
-      home: FoamScreen(),
-    );
-  }
-}
 
 class FoamScreen extends StatefulWidget {
   const FoamScreen({super.key});
@@ -26,6 +12,11 @@ class FoamScreen extends StatefulWidget {
 class _FoamScreenState extends State<FoamScreen> {
 
   final GlobalKey <FormState> _formKey =GlobalKey();
+
+    final TextEditingController _signInpEmailController = TextEditingController(); 
+  final TextEditingController _signInPasswordController = TextEditingController(); 
+
+
 
   String _name="";
 
@@ -44,9 +35,19 @@ class _FoamScreenState extends State<FoamScreen> {
             child: Column(
               children: <Widget>[
                 //can add many items
+
                 _buildNameField(),
                 _buildUserNameField(),
                 _buildPasswordField(),
+
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    ),
+                    onPressed: (){loginTest(_signInpEmailController.text,_signInPasswordController.text);},
+                    child: const Text("Login", style: TextStyle(color: Colors.white,fontSize:15),),
+                    ),
               ],
             ),
           ),
@@ -76,6 +77,7 @@ class _FoamScreenState extends State<FoamScreen> {
     return TextFormField(
         //making the text field
         maxLength: 25, // maximum charaters
+        controller: _signInpEmailController,
         decoration: InputDecoration(hintText: "Enter the User Name"),
         validator: (text) {
           if (text == null) {
@@ -93,6 +95,7 @@ class _FoamScreenState extends State<FoamScreen> {
     return TextFormField(
         //making the text field
         maxLength: 25, // maximum charaters
+        controller: _signInPasswordController,
         decoration: InputDecoration(hintText: "Enter the Password"),
         validator: (text) {
           if (text == null) {
@@ -103,5 +106,14 @@ class _FoamScreenState extends State<FoamScreen> {
         onSaved: (text) {
          _name = text!; //save items to that variable
         });
+  }
+
+  void loginTest(String email, String password) async{
+    FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
+      Navigator.of(context).push(MaterialPageRoute(builder:(_){
+        return const ChartChoose();
+      }));
+    }).onError((error, stackTrace)  {
+    });
   }
 }
