@@ -5,7 +5,7 @@ Future<void> uploadLabchartData(String age, String gender, String sbpp,
     String diabetic, String cholesterol, String smoke, String cvdLevel) async {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  // Upload data to Firestore
+  // Upload data to Firestore database
   await firestore.collection('labchart_data').add({
     'email': "test@gmail.com",
     'age': age,
