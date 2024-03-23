@@ -1,5 +1,5 @@
 import 'package:cvd_risk_analyser/components/input_field.dart';
-import 'package:cvd_risk_analyser/screens/forgot_password_screen_venura.dart';
+import 'package:cvd_risk_analyser/screens/forgot_password_screen.dart';
 
 import '../controllers/login_controller.dart';
 import 'package:flutter/material.dart';

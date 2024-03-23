@@ -6,7 +6,7 @@ import 'package:cvd_risk_analyser/controllers/report_controller.dart';
 import 'package:cvd_risk_analyser/controllers/user_data_controller.dart';
 import 'package:cvd_risk_analyser/database/database_service.dart';
 import 'package:cvd_risk_analyser/firebase/firebase_instances.dart';
-import 'package:cvd_risk_analyser/screens/login_screen_venura.dart';
+import 'package:cvd_risk_analyser/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
