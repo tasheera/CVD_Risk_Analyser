@@ -115,19 +115,19 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
                     buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
-                    buildRiskInputField("Systolic blood pressure :","insert pressure", _isValidHeight,"Enter valid pressure",TextInputType.number,_apHiCVDController), // create input field
+                    buildRiskInputField("Systolic blood pressure :","insert pressure (mmHg)", _isValidHeight,"Enter valid pressure",TextInputType.number,_apHiCVDController), // create input field
 
-                    buildRiskInputField("Diastolic blood pressure :","insert pressure", _isValidHeight,"Enter valid pressure",TextInputType.number,_apLoCVDController), // create input field
+                    buildRiskInputField("Diastolic blood pressure :","insert pressure (mmHg)", _isValidHeight,"Enter valid pressure",TextInputType.number,_apLoCVDController), // create input field
 
-                    buildRiskInputField("Cholesterol level :","insert cholesterol level", _isValidHeight,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
+                    buildRiskInputField("Cholesterol level :","insert cholesterol level (mmol/L)", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
-                    buildRiskInputField("Glucose level :","insert glucose level", _isValidHeight,"Enter valid glucose level",TextInputType.number,_glucoseCVDController), // create input field
+                    buildRiskInputField("Glucose level :","insert glucose level (mmol/L)", _isValidCholesterol,"Enter valid glucose level",TextInputType.number,_glucoseCVDController), // create input field
 
-                    buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_smokerCVDController),  // create input field
+                    buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or no only",TextInputType.text,_smokerCVDController),  // create input field
 
-                    buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_alcoholCVDController), // create input field
+                    buildRiskInputField("Alcohol intake :","input yes or no ", _isValidSmoker,"Enter yes or no only",TextInputType.text,_alcoholCVDController), // create input field
 
-                    buildRiskInputField("Physical active :","input yes or no ", _isValidSmoker,"Enter yes or only",TextInputType.text,_physicalCVDController), // create input field
+                    buildRiskInputField("Physical active :","input yes or no ", _isValidSmoker,"Enter yes or no only",TextInputType.text,_physicalCVDController), // create input field
 
 
                    const SizedBox(height: 10,),
@@ -230,12 +230,15 @@ void _predictCVDLevel(double iconSize) async {
         showCVDRiskLevel(
             context,
             cvdLevel,
-            'Risk of having a CVD in the near future is VERY LOW...!!',
+            "You lack major risk factors for developing cardiovascular disease.  However, if you have concerns, it's advisable to consult a doctor.",
             const Color(0XFFB6FFB0),
             const Color(0xFF00D823));
       } else {
         showCVDRiskLevel(
-            context, cvdLevel, 'You are at a Risk for developing a cardiovascualr disease!', const Color(0xFFD8584F), Colors.red);
+            context, cvdLevel, 
+            "You have several factors that may increase your risk of cardiovascular disease. We advise you to consult a doctor to ensure your health is properly assessed.",
+             const Color(0xFFD8584F),
+             Colors.red);
       }
       setState(() {
         previousResult = Text(
@@ -319,4 +322,14 @@ bool _isValidSmoker(String input) {
     return true;
   }
   return false;
+}
+
+bool _isValidCholesterol(String input) {
+  try {
+        double choc = double.parse(input); // check input is valid or not
+        return choc > 0 && choc <= 10; // check reasonable range
+  } catch (e) {
+
+    return false; // if there is any error ,return false
+  }
 }
