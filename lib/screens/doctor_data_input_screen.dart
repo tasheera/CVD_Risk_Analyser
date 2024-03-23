@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'input_screen_functions.dart';
 
 class DoctorInputScreen extends StatefulWidget {
+  final String name;
   final int number;
-  const DoctorInputScreen({super.key, required this.number});
+  const DoctorInputScreen({super.key, required this.number, required this.name});
 
   @override
   State<DoctorInputScreen> createState() => _DoctorInputScreenState();
@@ -91,7 +92,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
         
 
                     Text(
-                      "Dr name\n position\n hospital",
+                      "Dr ${widget.name}",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: iconSize*0.57,

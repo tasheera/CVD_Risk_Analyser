@@ -14,7 +14,9 @@ class _FoamScreenState extends State<FoamScreen> {
   final GlobalKey <FormState> _formKey =GlobalKey();
 
     final TextEditingController _signInpEmailController = TextEditingController(); 
-  final TextEditingController _signInPasswordController = TextEditingController(); 
+  final TextEditingController _signInPasswordController = TextEditingController();
+    final TextEditingController _signInNameController = TextEditingController(); 
+ 
 
 
 
@@ -45,7 +47,13 @@ class _FoamScreenState extends State<FoamScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     ),
-                    onPressed: (){loginTest(_signInpEmailController.text,_signInPasswordController.text);},
+                    onPressed: (){
+                      // loginTest(_signInpEmailController.text,_signInPasswordController.text);
+                            Navigator.of(context).push(MaterialPageRoute(builder:(_){
+        return  ChartChoose(name: _signInNameController.text,);
+      }));
+                      
+                      },
                     child: const Text("Login", style: TextStyle(color: Colors.white,fontSize:15),),
                     ),
               ],
@@ -60,6 +68,7 @@ class _FoamScreenState extends State<FoamScreen> {
     return TextFormField(
         //making the text field
         maxLength: 25, // maximum charaters
+        controller: _signInNameController,
         decoration: InputDecoration(hintText: "Enter the Name"),
         validator: (text) {
           if (text == null) {
@@ -110,9 +119,9 @@ class _FoamScreenState extends State<FoamScreen> {
 
   void loginTest(String email, String password) async{
     FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
-      Navigator.of(context).push(MaterialPageRoute(builder:(_){
-        return const ChartChoose();
-      }));
+      // Navigator.of(context).push(MaterialPageRoute(builder:(_){
+      //   return const ChartChoose();
+      // }));
     }).onError((error, stackTrace)  {
     });
   }

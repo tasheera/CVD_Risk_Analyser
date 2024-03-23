@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 
 class ChartChoose extends StatelessWidget {
-  const ChartChoose({super.key});
+  final String name;
+  const ChartChoose({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {// return scaffold
+   String nameS=name;
     return Scaffold( 
       body: Stack(
         fit: StackFit.expand,
         children: [
           Image.asset("assets/chartChoose.png",fit: BoxFit.cover,),// Background Image
-         
+        
 
           Center(
           child: Column(
@@ -31,19 +33,19 @@ class ChartChoose extends StatelessWidget {
                 height: 20,
               ),
 
-              const ChartChooseButton(name: "Laboratory chart", moveScreen: DoctorInputScreen(number: 3,)), // create object from class ChartChooseButton for choose chart
+               ChartChooseButton(name: "Laboratory chart", moveScreen: DoctorInputScreen(number: 3, name: nameS,)), // create object from class ChartChooseButton for choose chart
                 
               const SizedBox( // give extra space between widgets
                 height: 20,
               ),
 
-              const ChartChooseButton(name: "Non Laboratory chart",  moveScreen: DoctorInputScreen(number: 1,)), // create object from class ChartChooseButton for choose chart
+               ChartChooseButton(name: "Non Laboratory chart",  moveScreen: DoctorInputScreen(number: 1, name: nameS,)), // create object from class ChartChooseButton for choose chart
 
               const SizedBox( // give extra space between widgets
                 height: 20,
               ),
 
-              const ChartChooseButton(name: "ML model prediction",  moveScreen: UserInputScreen(name: "Doctor")), // create object from class ChartChooseButton for choose chart
+               ChartChooseButton(name: "ML model prediction",  moveScreen: UserInputScreen(name: nameS)), // create object from class ChartChooseButton for choose chart
 
 
            
