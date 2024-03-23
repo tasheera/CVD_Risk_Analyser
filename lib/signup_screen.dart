@@ -22,8 +22,7 @@ class _SignupScreenState extends State<SignupScreen> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign Up", style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.red,
+        title: const Text("Sign Up", ),
       ),
       body: SingleChildScrollView(
         child: Padding(
