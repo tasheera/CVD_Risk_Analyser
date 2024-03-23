@@ -159,11 +159,10 @@ void authTest(String email, String password ) async{
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        duration: Duration(seconds: 3), // Adjust the duration as needed
+        duration: Duration(seconds: 3), // adjust the duration as needed
         action: SnackBarAction(
           label: 'Close',
           onPressed: () {
-            // Some action to be performed when "Close" is pressed
           },
         ),
       ),

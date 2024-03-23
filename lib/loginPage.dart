@@ -48,10 +48,7 @@ class _FoamScreenState extends State<FoamScreen> {
                     backgroundColor: Colors.green,
                     ),
                     onPressed: (){
-                      // loginTest(_signInpEmailController.text,_signInPasswordController.text);
-                            Navigator.of(context).push(MaterialPageRoute(builder:(_){
-        return  ChartChoose(name: _signInNameController.text,);
-      }));
+                      loginTest(_signInpEmailController.text,_signInPasswordController.text, _signInNameController.text);
                       
                       },
                     child: const Text("Login", style: TextStyle(color: Colors.white,fontSize:15),),
@@ -87,7 +84,7 @@ class _FoamScreenState extends State<FoamScreen> {
         //making the text field
         maxLength: 25, // maximum charaters
         controller: _signInpEmailController,
-        decoration: InputDecoration(hintText: "Enter the User Name"),
+        decoration: InputDecoration(hintText: "Enter the email address"),
         validator: (text) {
           if (text == null) {
             return "username cannot be emplty";
@@ -117,12 +114,30 @@ class _FoamScreenState extends State<FoamScreen> {
         });
   }
 
-  void loginTest(String email, String password) async{
+  void loginTest(String email, String password, String name) async{
     FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
-      // Navigator.of(context).push(MaterialPageRoute(builder:(_){
-      //   return const ChartChoose();
-      // }));
+      Navigator.of(context).push(MaterialPageRoute(builder:(_){
+        return ChartChoose(name:name,);
+      }));
     }).onError((error, stackTrace)  {
+      _showSnackbar(context, error.toString());
     });
   }
+
+      void _showSnackbar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 3), // Adjust the duration as needed
+        action: SnackBarAction(
+          label: 'Close',
+          onPressed: () {
+          },
+        ),
+      ),
+    );
+
+
+
+}
 }
