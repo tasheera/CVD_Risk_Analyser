@@ -15,8 +15,16 @@ void main() async {
   await firebaseInitialization.then((_) {
     Get.put(AuthController());
   });
-  await AuthController.authInstance.signOut();
-  await DatabaseService().dropDatabase();
+
+  ///Use for testing purposes only
+
+  ///This will logout the user everytime the app cold starts
+  // await AuthController.authInstance.signOut();
+
+  ///This will delete the database everytime the app cold starts
+  // await DatabaseService().dropDatabase();
+
+
   await Get.putAsync(() => UserDataController.create());
   Get.put(LoginController());
   Get.put(NavigationController());
