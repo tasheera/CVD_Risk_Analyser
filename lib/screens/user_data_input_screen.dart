@@ -39,7 +39,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
 
     return Scaffold(
-         
+      bottomNavigationBar: CustomNavigationBar(),
       appBar: AppBar(
 
         title: Row(
