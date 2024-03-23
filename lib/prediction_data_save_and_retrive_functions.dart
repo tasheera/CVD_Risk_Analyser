@@ -32,3 +32,7 @@ void saveData(
   );
   await ReportController.instance.saveReport(report);
 }
+
+void fetchData(){
+  List<Report> reports = ReportController.instance.reportList;
+}
