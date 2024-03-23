@@ -121,7 +121,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
                     buildRiskInputField("Cholesterol level :","insert cholesterol level (mmol/L)", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
-                    buildRiskInputField("Glucose level :","insert glucose level (mmol/L)", _isValidCholesterol,"Enter valid glucose level",TextInputType.number,_glucoseCVDController), // create input field
+                    buildRiskInputField("Glucose level :","insert glucose level (mmol/L)", _isValidHeight,"Enter valid glucose level",TextInputType.number,_glucoseCVDController), // create input field
 
                     buildRiskInputField("Smoker :","input yes or no ", _isValidSmoker,"Enter yes or no only",TextInputType.text,_smokerCVDController),  // create input field
 
@@ -217,6 +217,8 @@ void _predictCVDLevel(double iconSize) async {
       }),
     );
 
+    Color previousColor=Colors.black;
+
     if (response.statusCode == 200) {
       int predictVal = json.decode(response.body); // get response from the API
       String cvdLevel = "";
@@ -233,17 +235,19 @@ void _predictCVDLevel(double iconSize) async {
             "You lack major risk factors for developing cardiovascular disease.  However, if you have concerns, it's advisable to consult a doctor.",
             const Color(0XFFB6FFB0),
             const Color(0xFF00D823));
+            previousColor=Color(0xFF00D823);
       } else {
         showCVDRiskLevel(
             context, cvdLevel, 
             "You have several factors that may increase your risk of cardiovascular disease. We advise you to consult a doctor to ensure your health is properly assessed.",
              const Color(0xFFD8584F),
              Colors.red);
+             previousColor=Colors.red;
       }
       setState(() {
         previousResult = Text(
           cvdLevel,
-          style: TextStyle(fontSize: iconSize * 0.7, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: iconSize * 0.7, fontWeight: FontWeight.bold, color:previousColor),
         );
       });
       saveData(predictAge, predictGender, predictWeight, predictHeight, predictSbp,
