@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 
 class ChartChoose extends StatelessWidget {
+    final String emailAddress;
   final String name;
-  const ChartChoose({super.key, required this.name});
+  const ChartChoose({super.key, required this.name, required this.emailAddress});
 
   @override
   Widget build(BuildContext context) {// return scaffold
    String nameS=name;
+   String emailS=emailAddress;
     return Scaffold( 
       body: Stack(
         fit: StackFit.expand,
@@ -33,13 +35,13 @@ class ChartChoose extends StatelessWidget {
                 height: 20,
               ),
 
-               ChartChooseButton(name: "Laboratory chart", moveScreen: DoctorInputScreen(number: 3, name: nameS,)), // create object from class ChartChooseButton for choose chart
+               ChartChooseButton(name: "Laboratory chart", moveScreen: DoctorInputScreen(number: 3, name: nameS, emailAddress: emailS,)), // create object from class ChartChooseButton for choose chart
                 
               const SizedBox( // give extra space between widgets
                 height: 20,
               ),
 
-               ChartChooseButton(name: "Non Laboratory chart",  moveScreen: DoctorInputScreen(number: 1, name: nameS,)), // create object from class ChartChooseButton for choose chart
+               ChartChooseButton(name: "Non Laboratory chart",  moveScreen: DoctorInputScreen(number: 1, name: nameS, emailAddress: emailS,)), // create object from class ChartChooseButton for choose chart
 
               const SizedBox( // give extra space between widgets
                 height: 20,

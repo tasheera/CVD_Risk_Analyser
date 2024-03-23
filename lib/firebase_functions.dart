@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Function to upload lab chart data to Firestore
 Future<void> uploadLabchartData(String age, String gender, String sbpp,
-    String diabetic, String cholesterol, String smoke, String cvdLevel) async {
+    String diabetic, String cholesterol, String smoke, String cvdLevel, String email) async {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   // Upload data to Firestore database
   await firestore.collection('labchart_data').add({
-    'email': "test@gmail.com",
+    'email': email,
     'age': age,
     'gender': gender,
     'SBPP': sbpp,
@@ -21,12 +21,12 @@ Future<void> uploadLabchartData(String age, String gender, String sbpp,
 
 // Function to upload non-lab chart data to Firestore
 Future<void> uploadNonLabchartData(String age, String gender, String height,
-    String weight, String sbpp, String smoke, String cvdLevel) async {
+    String weight, String sbpp, String smoke, String cvdLevel, String email) async {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   // Upload data to Firestore
   await firestore.collection('non_labchart_data').add({
-    'email': "test@gmail.com",
+    'email': email,
     'age': age,
     'gender': gender,
     'height': height,

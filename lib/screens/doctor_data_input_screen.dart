@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 import 'input_screen_functions.dart';
 
 class DoctorInputScreen extends StatefulWidget {
+  final String emailAddress;
   final String name;
   final int number;
-  const DoctorInputScreen({super.key, required this.number, required this.name});
+  const DoctorInputScreen({super.key, required this.number, required this.name, required this.emailAddress});
 
   @override
   State<DoctorInputScreen> createState() => _DoctorInputScreenState();
@@ -285,11 +286,11 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
 
     if (colorOfCVD!="Error"){
           if (widget.number==1){ // check chart type
-        uploadNonLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, sbpCVD, smokeCVD, colorOfCVD);
+        uploadNonLabchartData(ageCVD, genderCVD, heightCVD, weightCVD, sbpCVD, smokeCVD, colorOfCVD, widget.emailAddress);
       }
 
       if (widget.number==3){// check chart type
-        uploadLabchartData(ageCVD, genderCVD, sbpCVD, diabeticCVD, cholesterolCVD, smokeCVD, colorOfCVD );
+        uploadLabchartData(ageCVD, genderCVD, sbpCVD, diabeticCVD, cholesterolCVD, smokeCVD, colorOfCVD,widget.emailAddress );
         }
     }
 
