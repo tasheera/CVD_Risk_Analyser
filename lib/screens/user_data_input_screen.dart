@@ -250,7 +250,7 @@ void _predictCVDLevel(double iconSize) async {
           style: TextStyle(fontSize: iconSize * 0.7, fontWeight: FontWeight.bold, color:previousColor),
         );
       });
-      saveData(predictAge, predictGender, predictWeight, predictHeight, predictSbp,
+      await saveData(predictAge, predictGender, predictWeight, predictHeight, predictSbp,
           predictDbp, predictCholesterol, predictGlucose, predictSmoke, predictAlcohol,
           predictPhysical, cvdLevel);
     } else {

@@ -1,4 +1,4 @@
-import 'package:cvd_risk_analyser/loginPage.dart';
+import 'package:cvd_risk_analyser/screens/login_screen_new.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 import 'package:cvd_risk_analyser/signup_screen.dart';
 import 'package:flutter/material.dart';
@@ -83,8 +83,9 @@ class HomePage extends StatelessWidget {
                       height: 70,
                       child: ElevatedButton(
                         onPressed: () {
+                          //TODO Link login screen
                             Navigator.of(context).push(MaterialPageRoute(builder:(_){
-                              return const FoamScreen();
+                              return LoginFormScreen();
                             }));
 
                         },
