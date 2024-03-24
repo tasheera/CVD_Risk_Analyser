@@ -1,5 +1,4 @@
 import 'package:cvd_risk_analyser/controllers/report_controller.dart';
-
 import 'models/Report.dart';
 
 Future<void> saveData(
@@ -10,10 +9,10 @@ Future<void> saveData(
     String predictSbp,
     String predictDbp,
     String predictCholesterol,
-    String predictSbpt,
     String predictGlucose,
     String predictSmoke,
     String predictAlcohol,
+    String predictPhysical,
     String cvdLevel) async {
   Report report = Report(
     reportId: 0, // Set reportId accordingly if available
@@ -24,15 +23,16 @@ Future<void> saveData(
     predictSbp: predictSbp,
     predictDbp: predictDbp,
     predictCholesterol: predictCholesterol,
-    predictSbpt: predictSbpt,
     predictGlucose: predictGlucose,
     predictSmoke: predictSmoke,
     predictAlcohol: predictAlcohol,
+    predictPhysical: predictPhysical,
     cvdLevel: cvdLevel,
   );
   await ReportController.instance.saveReport(report);
 }
 
-void fetchData(){
+List<Report> fetchData(){
   List<Report> reports = ReportController.instance.reportList;
+  return reports;
 }
