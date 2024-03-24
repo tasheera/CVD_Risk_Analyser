@@ -1,3 +1,6 @@
+import 'package:cvd_risk_analyser/controllers/login_controller.dart';
+import 'package:cvd_risk_analyser/controllers/navigation_controller.dart';
+import 'package:cvd_risk_analyser/controllers/user_data_controller.dart';
 import 'package:cvd_risk_analyser/screens/login_screen.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 import 'package:cvd_risk_analyser/signup_screen.dart';
@@ -111,10 +114,17 @@ class HomePage extends StatelessWidget {
                         width: 251,
                         height: 70,
                         child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
+
+                            //Dependency Injection
+                            NavigationController.instance.currentIndex = 1;
+
+                            //Dependency Injection
+                            UserDataController.instance.isGuestUser = true;
+
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (_) {
-                              return const UserInputScreen(name: "User");
+                              return const UserInputScreen(name: "Guest");
                             }));
                           },
                           style: ElevatedButton.styleFrom(
