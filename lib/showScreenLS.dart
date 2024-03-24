@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+List<String> getData = [];
+
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,21 +28,23 @@ class ShowScreen extends StatelessWidget {
  * this part have to be itarare
  * using colour,date and the display msg
  */
-
-              ListTile(
-                leading: Icon(Icons.ac_unit_rounded),
-                title: Text("date  //calculate date"),
-                subtitle: Text("//display msg"),
-                trailing: Container(
-                  width: 2,
-                  height: 2,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue // colouer which output
-                      ),
-                  //onTop(){}, --> something wanna happen
-                ),
-              )
+              
+                ListTile(
+                  
+                  leading: Icon(Icons.ac_unit_rounded),
+                  title: Text("risk level"),
+                  subtitle: Text(""),
+                  trailing: Container(
+                    width: 2,
+                    height: 2,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.blue // colouer which output
+                        ),
+                    //onTop(){}, --> something wanna happen
+                  ),
+                )
+  
 
               // Divider(),
 
