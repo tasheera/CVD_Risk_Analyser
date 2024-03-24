@@ -1,7 +1,5 @@
 import 'package:cvd_risk_analyser/components/input_field.dart';
 import 'package:cvd_risk_analyser/controllers/login_controller.dart';
-import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
