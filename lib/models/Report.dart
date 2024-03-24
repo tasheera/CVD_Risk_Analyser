@@ -9,10 +9,10 @@ class Report {
   String predictSbp;
   String predictDbp;
   String predictCholesterol;
-  String predictSbpt;
   String predictGlucose;
   String predictSmoke;
   String predictAlcohol;
+  String predictPhysical;
   String cvdLevel;
 
   Report({
@@ -24,10 +24,10 @@ class Report {
     required this.predictSbp,
     required this.predictDbp,
     required this.predictCholesterol,
-    required this.predictSbpt,
     required this.predictGlucose,
     required this.predictSmoke,
     required this.predictAlcohol,
+    required this.predictPhysical,
     required this.cvdLevel,
   });
 
@@ -42,10 +42,10 @@ class Report {
       predictSbp: map['predict_sbp'],
       predictDbp: map['predict_dbp'],
       predictCholesterol: map['predict_cholesterol'],
-      predictSbpt: map['predict_sbpt'],
       predictGlucose: map['predict_glucose'],
       predictSmoke: map['predict_smoke'],
       predictAlcohol: map['predict_alcohol'],
+      predictPhysical: map['predict_physical'],
       cvdLevel: map['cvd_level'],
     );
   }
@@ -59,10 +59,10 @@ class Report {
     'predict_sbp': predictSbp,
     'predict_dbp': predictDbp,
     'predict_cholesterol': predictCholesterol,
-    'predict_sbpt': predictSbpt,
     'predict_glucose': predictGlucose,
     'predict_smoke': predictSmoke,
     'predict_alcohol': predictAlcohol,
+    'predict_physical': predictPhysical,
     'cvd_level': cvdLevel,
   };
 }

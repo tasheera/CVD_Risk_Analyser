@@ -16,10 +16,10 @@ CREATE TABLE IF NOT EXISTS Reports (
     predict_sbp TEXT NOT NULL,
     predict_dbp TEXT NOT NULL,
     predict_cholesterol TEXT NOT NULL,
-    predict_sbpt TEXT NOT NULL,
     predict_glucose TEXT NOT NULL,
     predict_smoke TEXT NOT NULL,
     predict_alcohol TEXT NOT NULL,
+    predict_physical TEXT NOT NULL,
     cvd_level TEXT NOT NULL
 )
 ''');
