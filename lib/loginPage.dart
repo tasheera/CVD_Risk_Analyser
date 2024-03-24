@@ -1,6 +1,14 @@
-import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Foam Widget",
+      home: FoamScreen(),
+    );
+  }
+}
 
 class FoamScreen extends StatefulWidget {
   const FoamScreen({super.key});
@@ -12,13 +20,6 @@ class FoamScreen extends StatefulWidget {
 class _FoamScreenState extends State<FoamScreen> {
 
   final GlobalKey <FormState> _formKey =GlobalKey();
-
-    final TextEditingController _signInpEmailController = TextEditingController(); 
-  final TextEditingController _signInPasswordController = TextEditingController();
-    final TextEditingController _signInNameController = TextEditingController(); 
- 
-
-
 
   String _name="";
 
@@ -37,22 +38,9 @@ class _FoamScreenState extends State<FoamScreen> {
             child: Column(
               children: <Widget>[
                 //can add many items
-
                 _buildNameField(),
                 _buildUserNameField(),
                 _buildPasswordField(),
-
-
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    ),
-                    onPressed: (){
-                      loginTest(_signInpEmailController.text,_signInPasswordController.text, _signInNameController.text);
-                      
-                      },
-                    child: const Text("Login", style: TextStyle(color: Colors.white,fontSize:15),),
-                    ),
               ],
             ),
           ),
@@ -65,11 +53,10 @@ class _FoamScreenState extends State<FoamScreen> {
     return TextFormField(
         //making the text field
         maxLength: 25, // maximum charaters
-        controller: _signInNameController,
         decoration: InputDecoration(hintText: "Enter the Name"),
         validator: (text) {
           if (text == null) {
-            return "Name cannot be empty";
+            return "Name cannot be emplty";
           }
           return null;
         },
@@ -82,12 +69,11 @@ class _FoamScreenState extends State<FoamScreen> {
     //username
     return TextFormField(
         //making the text field
-        maxLength: 30, // maximum charaters
-        controller: _signInpEmailController,
-        decoration: InputDecoration(hintText: "Enter the email address"),
+        maxLength: 25, // maximum charaters
+        decoration: InputDecoration(hintText: "Enter the User Name"),
         validator: (text) {
           if (text == null) {
-            return "username cannot be empty";
+            return "username cannot be emplty";
           }
           return null;
         },
@@ -101,11 +87,10 @@ class _FoamScreenState extends State<FoamScreen> {
     return TextFormField(
         //making the text field
         maxLength: 25, // maximum charaters
-        controller: _signInPasswordController,
         decoration: InputDecoration(hintText: "Enter the Password"),
         validator: (text) {
           if (text == null) {
-            return "password cannot be empty";
+            return "password cannot be emplty";
           }
           return null;
         },
@@ -113,31 +98,4 @@ class _FoamScreenState extends State<FoamScreen> {
          _name = text!; //save items to that variable
         });
   }
-
-  void loginTest(String email, String password, String name) async{
-    FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
-      Navigator.of(context).push(MaterialPageRoute(builder:(_){
-        return ChartChoose(name:name, emailAddress: email,);
-      }));
-    }).onError((error, stackTrace)  {
-      _showSnackbar(context, error.toString());
-    });
-  }
-
-      void _showSnackbar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        duration: Duration(seconds: 3), // Adjust the duration as needed
-        action: SnackBarAction(
-          label: 'Close',
-          onPressed: () {
-          },
-        ),
-      ),
-    );
-
-
-
-}
 }

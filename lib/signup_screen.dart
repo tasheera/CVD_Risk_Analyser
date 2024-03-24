@@ -1,4 +1,4 @@
-import 'package:cvd_risk_analyser/loginPage.dart';
+import 'package:cvd_risk_analyser/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -136,7 +136,7 @@ void authTest(String email, String password ) async{
       );
 
       Navigator.of(context).push(MaterialPageRoute(builder:(_){ // move to chart choose screen
-         return const FoamScreen();
+         return LoginFormScreen();
          }));
       _signupCodeController.clear();
       _signupEmailController.clear();
