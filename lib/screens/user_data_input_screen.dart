@@ -115,9 +115,9 @@ class _UserInputScreenState extends State<UserInputScreen> {
 
                     buildRiskInputField("Height :","insert in centimeters", _isValidHeight,"Enter valid height",TextInputType.number,_heightCVDController), // create input field
 
-                    buildRiskInputField("Systolic blood pressure :","insert pressure (mmHg)", _isValidHeight,"Enter valid pressure",TextInputType.number,_apHiCVDController), // create input field
+                    buildRiskInputField("Systolic blood pressure :","insert pressure (mmHg)", _isValidSBP,"Between 0 - 300",TextInputType.number,_apHiCVDController), // create input field
 
-                    buildRiskInputField("Diastolic blood pressure :","insert pressure (mmHg)", _isValidHeight,"Enter valid pressure",TextInputType.number,_apLoCVDController), // create input field
+                    buildRiskInputField("Diastolic blood pressure :","insert pressure (mmHg)", _isValidSBP,"Between 0 - 300",TextInputType.number,_apLoCVDController), // create input field
 
                     buildRiskInputField("Cholesterol level :","insert cholesterol level (mmol/L)", _isValidCholesterol,"Enter valid cholesterol level",TextInputType.number,_cholesterolCVDController), // create input field
 
@@ -332,6 +332,16 @@ bool _isValidCholesterol(String input) {
   try {
         double choc = double.parse(input); // check input is valid or not
         return choc > 0 && choc <= 10; // check reasonable range
+  } catch (e) {
+
+    return false; // if there is any error ,return false
+  }
+}
+
+bool _isValidSBP(String input) {
+  try {
+        double sbp = double.parse(input); // check input is valid or not
+        return sbp > 0 && sbp <= 300; // check reasonable range
   } catch (e) {
 
     return false; // if there is any error ,return false
