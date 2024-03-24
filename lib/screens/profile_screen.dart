@@ -23,11 +23,13 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                _userDataController.currentUser != null
-                    ? 'Hello Dr. ${_userDataController.currentUser!.name}!'
-                    : 'Hello Guest User!',
-                style: TextStyle(fontSize: 17.0),
+              Obx(() =>
+                Text(
+                  !_userDataController.isGuestUser
+                      ? 'Hello Dr. ${_userDataController.currentUser!.name}!'
+                      : 'Hello Guest User!',
+                  style: TextStyle(fontSize: 17.0),
+                ),
               ),
               ElevatedButton(
                   onPressed: () async {

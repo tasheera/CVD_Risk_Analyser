@@ -8,6 +8,7 @@ class LoginFormScreen extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    controller.resetFields();
     return Scaffold(
       appBar: AppBar(
         title: Text("Log-In "),

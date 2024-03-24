@@ -90,7 +90,7 @@ class ChartChoose extends StatelessWidget {
                       ChartChooseButton(
                         name: "ML model prediction",
                         moveScreen: UserInputScreen(
-                          name: _userDataController.currentUser!.name,
+                          name: _userDataController.currentUser?.name ?? 'Guest',
                         ),
                       ),
                       // create object from class ChartChooseButton for choose chart
