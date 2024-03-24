@@ -4,7 +4,7 @@ import 'package:cvd_risk_analyser/prediction_data_save_and_retrive_functions.dar
 import 'package:cvd_risk_analyser/models/Report.dart';
 
 class ReportScreen extends StatelessWidget {
-  const ReportScreen({super.key});
+  const ReportScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,37 +20,49 @@ class ReportScreen extends StatelessWidget {
       body: SafeArea(
         child: reports.isEmpty
             ? Center(
-                child: Text('No history recorded. Please take the test first.'),
+                child: Text('No history recorded. Please take the test first and check back here.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               )
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            : ListView(
+                padding: EdgeInsets.all(20),
                 children: [
-                  Text('Previous Result Information:'),
+                  Text('Previous Result Information:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                   SizedBox(height: 20),
-                  // Print out the report
-                  Text('"Age": ${reports[0].predictAge}'),
-                  SizedBox(height: 10), 
-                  Text('"Gender": ${reports[0].predictGender}'),
-                  SizedBox(height: 10), 
-                  Text('"Weight : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Height : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Systolic Blood Pressure : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Diastolic Blood Pressure : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Cholesterol : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Glucose : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Smoking Status: ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Alcohol Intake : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Physcal Activity : ${reports[0].predictGender}"'),
-                  SizedBox(height: 10), 
-                  Text('"Cardio vascualar diease Prediction : ${reports[0].predictGender}"'),
+                  for (var report in reports)
+                    Column(
+                      children: [
+                        Card(
+                          color: () {
+                            if (report.cvdLevel == 'Low Risk') {
+                              return Color.fromARGB(255, 198, 235, 198);
+                            } else if (report.cvdLevel == 'High Risk') {
+                              return Color.fromARGB(255, 233, 131, 124);
+                            }
+                          }(),
+                          child: ListTile(
+                            title: Text('Prediction ID: ${report.reportId}'),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 6),
+                                Text('Age : ${report.predictAge}'),
+                                Text('Gender : ${report.predictGender}'),
+                                Text('Weight : ${report.predictWeight}'),
+                                Text('Height : ${report.predictHeight}'),
+                                Text('Systolic BP : ${report.predictSbp}'),
+                                Text('Diastolic BP : ${report.predictDbp}'),
+                                Text('Cholesterol Level: ${report.predictCholesterol}'),
+                                Text('Glucose Level: ${report.predictGlucose}'),
+                                Text('Smoking Status : ${report.predictSmoke}'),
+                                Text('Alcohol Intake : ${report.predictAlcohol}'),
+                                Text('Physical Activity : ${report.predictPhysical}'),
+                                Text('CVD Prediction: ${report.cvdLevel}'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 13), //added space between cards
+                      ],
+                    ),
                 ],
               ),
       ),
