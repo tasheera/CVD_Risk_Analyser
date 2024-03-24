@@ -69,7 +69,7 @@ class _FoamScreenState extends State<FoamScreen> {
         decoration: InputDecoration(hintText: "Enter the Name"),
         validator: (text) {
           if (text == null) {
-            return "Name cannot be emplty";
+            return "Name cannot be empty";
           }
           return null;
         },
@@ -82,12 +82,12 @@ class _FoamScreenState extends State<FoamScreen> {
     //username
     return TextFormField(
         //making the text field
-        maxLength: 25, // maximum charaters
+        maxLength: 30, // maximum charaters
         controller: _signInpEmailController,
         decoration: InputDecoration(hintText: "Enter the email address"),
         validator: (text) {
           if (text == null) {
-            return "username cannot be emplty";
+            return "username cannot be empty";
           }
           return null;
         },
@@ -105,7 +105,7 @@ class _FoamScreenState extends State<FoamScreen> {
         decoration: InputDecoration(hintText: "Enter the Password"),
         validator: (text) {
           if (text == null) {
-            return "password cannot be emplty";
+            return "password cannot be empty";
           }
           return null;
         },

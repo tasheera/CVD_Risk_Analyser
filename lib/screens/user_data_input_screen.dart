@@ -198,7 +198,7 @@ void _predictCVDLevel(double iconSize) async {
     String predictPhysical = _physicalCVDController.text;
 
     final response = await http.post(
-      Uri.parse('https://api-oka6pmsbjq-ue.a.run.app/cvd_api_endpoint'), // API endpoint
+      Uri.parse('https://mlapi-oka6pmsbjq-ue.a.run.app/cvd_api_endpoint'), // API endpoint
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
