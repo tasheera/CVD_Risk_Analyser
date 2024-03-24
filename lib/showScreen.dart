@@ -5,7 +5,13 @@ import 'package:flutter/material.dart';
  */
 
 
-
+  String age = '';
+  String gender = '';
+  String SBPP = '';
+  String diabetic = '';
+  String cholesterol = '';
+  String smoke = '';
+  String cvdLevel = '';
 
 
 
@@ -25,13 +31,13 @@ class _DataScreenState extends State<DataScreen> {
   String cholesterol = '';
   String smoke = '';
   String cvdLevel = '';
-  bool isSmoker = false;
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Data Screen'),
+        title: Text('History'),
       ),
       //backgroundColor: Color.fromRGBO(195, 250,, opacity),
       body: Padding(
