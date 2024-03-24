@@ -66,4 +66,8 @@ class UserDataController extends GetxController {
       rethrow;
     }
   }
+
+  Future<void> refreshController() async {
+    await _initController();
+  }
 }
