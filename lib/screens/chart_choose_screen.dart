@@ -3,86 +3,120 @@ import 'package:cvd_risk_analyser/controllers/navigation_controller.dart';
 import 'package:cvd_risk_analyser/screens/doctor_data_input_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
+import '../controllers/user_data_controller.dart';
 
 class ChartChoose extends StatelessWidget {
   ChartChoose({super.key});
-  
+
   //Dependency Injection
   UserDataController _userDataController = UserDataController.instance;
+
+  Future<String> _refreshData() async{
+    try{
+      await _userDataController.refreshController();
+      return 'Done!';
+    }catch(e)
+    {
+      rethrow;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     // return scaffold
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Image.asset(
-            "assets/chartChoose.png",
-            fit: BoxFit.cover,
-          ), // Background Image
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+      body: FutureBuilder(
+        future: _refreshData(),
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.hasData) {
+            return Stack(
+              fit: StackFit.expand,
               children: [
-                Container(
-                  width: 280,
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.grey.withOpacity(0.5)),
-                  child: const Text(
-                    "Choose a chart",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 35,
-                        fontWeight: FontWeight.w800),
+                Image.asset(
+                  "assets/chartChoose.png",
+                  fit: BoxFit.cover,
+                ), // Background Image
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 280,
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.grey.withOpacity(0.5)),
+                        child: const Text(
+                          "Choose a chart",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 35,
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ),
+
+                      const SizedBox(
+                        // give extra space between widgets
+                        height: 20,
+                      ),
+
+                      const ChartChooseButton(
+                        name: "Laboratory chart",
+                        moveScreen: DoctorInputScreen(
+                          number: 3,
+                        ),
+                      ),
+                      // create object from class ChartChooseButton for choose chart
+
+                      const SizedBox(
+                        // give extra space between widgets
+                        height: 20,
+                      ),
+
+                      const ChartChooseButton(
+                        name: "Non Laboratory chart",
+                        moveScreen: DoctorInputScreen(
+                          number: 1,
+                        ),
+                      ),
+                      // create object from class ChartChooseButton for choose chart
+
+                      const SizedBox(
+                        // give extra space between widgets
+                        height: 20,
+                      ),
+
+                      ChartChooseButton(
+                        name: "ML model prediction",
+                        moveScreen: UserInputScreen(
+                          name: _userDataController.currentUser!.name,
+                        ),
+                      ),
+                      // create object from class ChartChooseButton for choose chart
+                    ],
                   ),
                 ),
-
-                const SizedBox(
-                  // give extra space between widgets
-                  height: 20,
-                ),
-
-                const ChartChooseButton(
-                  name: "Laboratory chart",
-                  moveScreen: DoctorInputScreen(
-                    number: 3,
-                  ),
-                ),
-                // create object from class ChartChooseButton for choose chart
-
-                const SizedBox(
-                  // give extra space between widgets
-                  height: 20,
-                ),
-
-                const ChartChooseButton(
-                  name: "Non Laboratory chart",
-                  moveScreen: DoctorInputScreen(
-                    number: 1,
-                  ),
-                ),
-                // create object from class ChartChooseButton for choose chart
-
-                const SizedBox(
-                  // give extra space between widgets
-                  height: 20,
-                ),
-
-                ChartChooseButton(
-                  name: "ML model prediction",
-                  moveScreen: UserInputScreen(
-                    name: _userDataController.currentUser!.name,
-                  ),
-                ),
-                // create object from class ChartChooseButton for choose chart
               ],
-            ),
-          ),
-        ],
+            );
+          } else if (snapshot.hasError) {
+            return SafeArea(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(20.0),
+                child: Center(
+                  child: Text('A unexpected error occurred'),
+                ),
+              ),
+            );
+          } else {
+            return const SafeArea(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
       ),
     );
   }
