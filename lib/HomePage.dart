@@ -1,5 +1,3 @@
-import 'package:cvd_risk_analyser/screens/chart_choose_screen.dart';
-import 'package:cvd_risk_analyser/screens/login_screen.dart';
 import 'package:cvd_risk_analyser/screens/login_screen_new.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 import 'package:cvd_risk_analyser/signup_screen.dart';
