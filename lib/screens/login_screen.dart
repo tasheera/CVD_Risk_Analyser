@@ -1,72 +1,66 @@
 import 'package:cvd_risk_analyser/components/input_field.dart';
-import 'package:cvd_risk_analyser/screens/forgot_password_screen.dart';
-
-import '../controllers/login_controller.dart';
+import 'package:cvd_risk_analyser/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//screen for login. style as you please. better use getx for state handling
-class LoginScreen extends GetView<LoginController> {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginFormScreen extends GetView<LoginController> {
+  LoginFormScreen();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: ListView(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 32, top: 8),
-            child: Text(
-              'Sign In',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+      appBar: AppBar(
+        title: Text("Log-In "),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.all(24.0),
+          child: Column(
+            children: <Widget>[
+              //can add many items
+
+              InputField(
+                controller: controller.nameController,
+                hintText: 'Enter Your Name',
+                maxLength: 25,
               ),
-            ),
-          ),
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  InputField(
-                    controller: controller.nameController,
-                  ),
-                  // InputField(
-                  //   controller: controller.positionController,
-                  // ),
-                  // InputField(
-                  //   controller: controller.hospitalController,
-                  // ),
-                  InputField(
-                    controller: controller.emailController,
-                  ),
-                  InputField(
-                    controller: controller.passwordController,
-                    obscureText: true,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextButton(
-                        child: Text('Sign in'),
-                        onPressed: controller.onLogin,
-                      ),
-                      TextButton(
-                        child: Text('Forgot Password?'),
-                        onPressed: () {
-                          Get.to(() => ForgotPasswordScreen());
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+              InputField(
+                controller: controller.emailController,
+                hintText: 'Enter Your Email',
               ),
-            ),
+              InputField(
+                controller: controller.passwordController,
+                hintText: 'Enter Your Password',
+                obscureText: true,
+              ),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                ),
+                onPressed: () async {
+                  await controller.onLogin();
+                },
+                child: const Text(
+                  "Login",
+                  style: TextStyle(color: Colors.white, fontSize: 15),
+                ),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                ),
+                onPressed: () async {
+                  await controller.onForgotPassword();
+                },
+                child: const Text(
+                  "Forgot Password",
+                  style: TextStyle(color: Colors.white, fontSize: 15),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
