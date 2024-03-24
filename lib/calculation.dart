@@ -363,7 +363,7 @@ String calculation(String age, String gender, String height, String weight, Stri
         return ("O");
       }
 
-//box 4
+      //box 4
       else if ((55 <= inputA && inputA <= 59) &&
           (20 >= BMI && BMI <= 29) &&
           (120 > SBP)) {
@@ -622,7 +622,7 @@ String calculation(String age, String gender, String height, String weight, Stri
         return ("M");
       }
       //box 28
-      else if ((70 <= inputA && inputA <= 74) &&
+        else if ((70 <= inputA && inputA <= 74) &&
           (35 <= BMI && 35 > BMI) &&
           (120 > SBP)) {
         return ("O");
