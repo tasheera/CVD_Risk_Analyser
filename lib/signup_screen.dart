@@ -134,7 +134,7 @@ void authTest(String email, String password ) async{
       );
 
       Navigator.of(context).push(MaterialPageRoute(builder:(_){ // move to chart choose screen
-         return const ChartChoose();
+         return ChartChoose();
          }));
       _signupCodeController.clear();
       _signupEmailController.clear();
