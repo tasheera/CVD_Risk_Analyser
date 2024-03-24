@@ -33,23 +33,18 @@ class LoginScreen extends GetView<LoginController> {
                 children: [
                   InputField(
                     controller: controller.nameController,
-                    title: 'Name',
                   ),
-                  InputField(
-                    controller: controller.positionController,
-                    title: 'Position',
-                  ),
-                  InputField(
-                    controller: controller.hospitalController,
-                    title: 'Hospital',
-                  ),
+                  // InputField(
+                  //   controller: controller.positionController,
+                  // ),
+                  // InputField(
+                  //   controller: controller.hospitalController,
+                  // ),
                   InputField(
                     controller: controller.emailController,
-                    title: 'Email',
                   ),
                   InputField(
                     controller: controller.passwordController,
-                    title: 'Password',
                     obscureText: true,
                   ),
                   Row(

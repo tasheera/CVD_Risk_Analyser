@@ -2,7 +2,7 @@ import 'package:cvd_risk_analyser/controllers/report_controller.dart';
 
 import 'models/Report.dart';
 
-void saveData(
+Future<void> saveData(
     String predictAge,
     String predictGender,
     String predictWeight,

@@ -3,14 +3,14 @@
 class AppUser {
   final String email;
   final String name;
-  String? position;
-  String? hospital;
+  // String? position;
+  // String? hospital;
 
   AppUser({
     required this.email,
     required this.name,
-    this.position,
-    this.hospital,
+    // this.position,
+    // this.hospital,
   });
 
   //factory to create objects from database maps
@@ -18,8 +18,8 @@ class AppUser {
     return AppUser(
       email: map['user_email'],
       name: map['user_name'],
-      position: map['position'],
-      hospital: map['hospital'],
+      // position: map['position'],
+      // hospital: map['hospital'],
     );
   }
 
@@ -28,8 +28,8 @@ class AppUser {
     return {
       'user_email': email,
       'user_name': name,
-      'position': position,
-      'hospital': hospital,
+      // 'position': position,
+      // 'hospital': hospital,
     };
   }
 }

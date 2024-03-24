@@ -328,7 +328,7 @@ class _UserInputScreenState extends State<UserInputScreen> {
                 fontSize: iconSize * 0.7, fontWeight: FontWeight.bold),
           );
         });
-        saveData(
+        await saveData(
             predictAge,
             predictGender,
             predictWeight,

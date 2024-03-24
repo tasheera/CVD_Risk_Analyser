@@ -9,12 +9,12 @@ class UserProvider {
     await database.execute('''
       CREATE TABLE IF NOT EXISTS $tableName (
         user_email TEXT PRIMARY KEY,
-        user_name TEXT NOT NULL,
-        position TEXT,
-        hospital TEXT
+        user_name TEXT NOT NULL
       )
     ''');
+    ///Add position & hospital here again if required
   }
+
 
   //function to insert/update user details
   static Future<int> insertOrUpdateUser(Map<String, dynamic> data) async {

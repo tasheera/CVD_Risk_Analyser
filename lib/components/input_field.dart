@@ -6,33 +6,25 @@ class InputField extends StatelessWidget {
   InputField({
     super.key,
     required this.controller,
-    required this.title,
     this.obscureText = false,
+    this.hintText,
+    this.maxLength
   });
 
   TextEditingController controller;
-  String title;
   bool obscureText;
+  String? hintText;
+  int? maxLength;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-          ),
-        ),
         TextFormField(
+          maxLength: maxLength,
           controller: controller,
-          decoration: InputDecoration(
-            labelText: 'Enter ${title.toLowerCase()}',
-            border: const OutlineInputBorder(),
-            isDense: true,
-            hintText: 'Enter ${title.toLowerCase()}',
-          ),
+          decoration: InputDecoration(hintText: hintText),
           obscureText: obscureText,
         ),
         const SizedBox(

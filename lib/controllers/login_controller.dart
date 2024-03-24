@@ -11,8 +11,8 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
-  final positionController = TextEditingController();
-  final hospitalController = TextEditingController();
+  // final positionController = TextEditingController();
+  // final hospitalController = TextEditingController();
 
 
   //Disposing controllers at the end
@@ -21,8 +21,31 @@ class LoginController extends GetxController {
     emailController.dispose();
     passwordController.dispose();
     nameController.dispose();
-    positionController.dispose();
-    hospitalController.dispose();
+    // positionController.dispose();
+    // hospitalController.dispose();
+  }
+
+  bool _validateEmail(){
+    if (emailController.text.trim().isEmpty) {
+      Get.snackbar(
+        'Enter email id',
+        'Please type your email',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return false;
+    }
+
+    //case for invalid email
+    if (!emailController.text.trim().isEmail) {
+      Get.snackbar(
+        'Invalid email',
+        'Please type a valid email',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return false;
+    }
+
+    return true;
   }
 
   //function which validates the form
@@ -53,65 +76,51 @@ class LoginController extends GetxController {
       return false;
     }
 
-    //case for empty position
-    if (positionController.text.trim().isEmpty) {
-      Get.snackbar(
-        'Enter position',
-        'Please type your position',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      return false;
-    }
+    // //case for empty position
+    // if (positionController.text.trim().isEmpty) {
+    //   Get.snackbar(
+    //     'Enter position',
+    //     'Please type your position',
+    //     snackPosition: SnackPosition.BOTTOM,
+    //   );
+    //   return false;
+    // }
+    //
+    // //case for invalid position
+    // if (checkForInvalidString(positionController.text)) {
+    //   Get.snackbar(
+    //     'Invalid position',
+    //     'Please type a valid position',
+    //     snackPosition: SnackPosition.BOTTOM,
+    //   );
+    //   return false;
+    // }
 
-    //case for invalid position
-    if (checkForInvalidString(positionController.text)) {
-      Get.snackbar(
-        'Invalid position',
-        'Please type a valid position',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      return false;
-    }
-
-    //case for empty hospital name
-    if (hospitalController.text.trim().isEmpty) {
-      Get.snackbar(
-        'Enter hospital name',
-        'Please type your hospital name',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      return false;
-    }
-
-    //case for invalid hospital name
-    if (checkForInvalidString(hospitalController.text)) {
-      Get.snackbar(
-        'Invalid hospital name',
-        'Please type a valid hospital name',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      return false;
-    }
+    // //case for empty hospital name
+    // if (hospitalController.text.trim().isEmpty) {
+    //   Get.snackbar(
+    //     'Enter hospital name',
+    //     'Please type your hospital name',
+    //     snackPosition: SnackPosition.BOTTOM,
+    //   );
+    //   return false;
+    // }
+    //
+    // //case for invalid hospital name
+    // if (checkForInvalidString(hospitalController.text)) {
+    //   Get.snackbar(
+    //     'Invalid hospital name',
+    //     'Please type a valid hospital name',
+    //     snackPosition: SnackPosition.BOTTOM,
+    //   );
+    //   return false;
+    // }
 
     //case for empty email
-    if (emailController.text.trim().isEmpty) {
-      Get.snackbar(
-        'Enter email id',
-        'Please type your email',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      return false;
-    }
-
-    //case for invalid email
-    if (!emailController.text.trim().isEmail) {
-      Get.snackbar(
-        'Invalid email',
-        'Please type a valid email',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-      return false;
-    }
+    if(!_validateEmail())
+      {
+        return false;
+      }
 
     //case for empty password
     if (passwordController.text.trim().isEmpty) {
@@ -133,8 +142,8 @@ class LoginController extends GetxController {
         String email = emailController.text;
         String password = passwordController.text;
         String name = nameController.text;
-        String position = positionController.text;
-        String hospital = hospitalController.text;
+        // String position = positionController.text;
+        // String hospital = hospitalController.text;
 
         //using AuthController to login user with firebase auth
         await controller.loginWithEmailAndPassword(email, password);
@@ -143,8 +152,8 @@ class LoginController extends GetxController {
         await UserDataController.instance.saveUserDetails(AppUser(
           email: email,
           name: name,
-          position: position,
-          hospital: hospital,
+          // position: position,
+          // hospital: hospital,
         ));
       } catch (e) {
         e.printError();
@@ -155,12 +164,15 @@ class LoginController extends GetxController {
 
   //handler for forget password
   Future<void> onForgotPassword() async {
-    try {
-      AuthController controller = AuthController.authInstance;
-      String email = emailController.text;
-      await controller.resetPassword(email: email);
-    } catch (e) {
-      e.printError();
-    }
+    if(_validateEmail())
+      {
+        try {
+          AuthController controller = AuthController.authInstance;
+          String email = emailController.text;
+          await controller.resetPassword(email: email);
+        } catch (e) {
+          e.printError();
+        }
+      }
   }
 }

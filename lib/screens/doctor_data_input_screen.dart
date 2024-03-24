@@ -64,10 +64,12 @@ class _DoctorInputScreenState extends State<DoctorInputScreen> {
       if(_userDataController.currentUser != null)
         {
           String name = _userDataController.currentUser!.name;
-          String? position = _userDataController.currentUser!.position;
-          String? hospital = _userDataController.currentUser!.hospital;
+          // String? position = _userDataController.currentUser!.position;
+          // String? hospital = _userDataController.currentUser!.hospital;
 
-          return 'Dr. ${name}\n${position}\n${hospital}';
+          return 'Dr. ${name}'
+              // '\n${position}\n${hospital}'
+          ;
         }
       else
         {

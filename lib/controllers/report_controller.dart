@@ -47,6 +47,7 @@ class ReportController extends GetxController{
       await ReportProvider.insertReport(report.toMap());
       await _initController();
     }catch(e){
+      print('Error Saving Data');
       e.printError();
       rethrow;
     }
