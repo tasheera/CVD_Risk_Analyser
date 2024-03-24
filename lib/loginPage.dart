@@ -117,7 +117,7 @@ class _FoamScreenState extends State<FoamScreen> {
   void loginTest(String email, String password, String name) async{
     FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
       Navigator.of(context).push(MaterialPageRoute(builder:(_){
-        return ChartChoose(name:name, emailAddress: email,);
+        return ChartChoose();
       }));
     }).onError((error, stackTrace)  {
       _showSnackbar(context, error.toString());
