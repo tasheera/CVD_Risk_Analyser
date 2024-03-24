@@ -175,4 +175,11 @@ class LoginController extends GetxController {
         }
       }
   }
+
+  void resetFields()
+  {
+    nameController.text = '';
+    emailController.text = '';
+    passwordController.text = '';
+  }
 }
