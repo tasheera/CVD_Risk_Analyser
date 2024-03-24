@@ -4,7 +4,7 @@ import 'package:cvd_risk_analyser/prediction_data_save_and_retrive_functions.dar
 import 'package:cvd_risk_analyser/models/Report.dart';
 
 class ReportScreen extends StatelessWidget {
-  const ReportScreen({Key? key});
+  const ReportScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,7 @@ class ReportScreen extends StatelessWidget {
       body: SafeArea(
         child: reports.isEmpty
             ? Center(
-                child: Text('No history recorded. Please take the test first and check back here.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              )
+                child: Text('No history recorded. Please take the test first and check back here.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),)
             : ListView(
                 padding: EdgeInsets.all(20),
                 children: [
