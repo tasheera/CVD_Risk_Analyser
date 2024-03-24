@@ -138,7 +138,7 @@ final GlobalKey <FormState> _formKey =GlobalKey();// create global key object fo
                     crossAxisAlignment: CrossAxisAlignment.start,// left align text
                     children: [
 
-                      buildRiskInputField("Age :","input age ", _isValidAge,"Age should be between 20 and 80",TextInputType.number,_ageCVDController), // create input field
+                      buildRiskInputField("Age :","input age ", _isValidAge,"Age should be between 40 and 74",TextInputType.number,_ageCVDController), // create input field
 
                       buildRiskInputField("Gender :","biological male/ female", _isValidGender,"Enter male or female",TextInputType.text,_genderCVDController),// create input field
 
@@ -355,7 +355,7 @@ bool _isValidWeight(String input) {
 bool _isValidSBP(String input) {
   try {
         double sbp = double.parse(input); // check input is valid or not
-        return sbp> 0 && sbp <= 300; // check reasonable range
+        return sbp> 0 && sbp <= 400; // check reasonable range
   } catch (e) {
 
     return false; // if there is any error ,return false
