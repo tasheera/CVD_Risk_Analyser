@@ -45,7 +45,7 @@ class Report {
       predictGlucose: map['predict_glucose'],
       predictSmoke: map['predict_smoke'],
       predictAlcohol: map['predict_alcohol'],
-      predictPhysical: map['predict_sbpt'],
+      predictPhysical: map['predict_physical'],
       cvdLevel: map['cvd_level'],
     );
   }
