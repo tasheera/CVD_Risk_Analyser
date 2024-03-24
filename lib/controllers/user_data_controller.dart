@@ -7,6 +7,14 @@ class UserDataController extends GetxController {
   //variable responsible for handling current logged in user data
   AppUser? currentUser;
 
+  //This observable variable now handles guest user status
+  RxBool _isGuestUser = false.obs;
+  bool get isGuestUser => _isGuestUser.value;
+  set isGuestUser(bool value) {
+    _isGuestUser.value = value;
+    update();
+  }
+
   //auth controller instance, used to check whether there is an already authenticated user
   AuthController _authController = AuthController.authInstance;
 
@@ -27,6 +35,8 @@ class UserDataController extends GetxController {
   Future<void> _initController() async {
     if (_authController.firebaseUser == null) {
       currentUser == null;
+      _isGuestUser.value = true;
+      update();
     } else {
       //getting email to use it as primary key and fetch other saved user data
       String userEmail = _authController.firebaseUser!.email!;
@@ -34,14 +44,20 @@ class UserDataController extends GetxController {
         List<Map> userDataList = await _getUserDetails(userEmail);
         if (userDataList.isNotEmpty) {
           currentUser = AppUser.fromMap(userDataList[0]);
+          _isGuestUser.value = false;
         } else {
+          _isGuestUser.value = true;
           throw Exception('No such user');
         }
       } catch (e) {
+        _isGuestUser.value = true;
         e.printError();
         Get.snackbar('Error', 'An error occurred while getting user details',
             snackPosition: SnackPosition.BOTTOM);
         rethrow;
+      }
+      finally{
+        update();
       }
     }
   }
@@ -61,9 +77,14 @@ class UserDataController extends GetxController {
     try {
       await UserProvider.insertOrUpdateUser(user.toMap());
       currentUser = user;
+      _isGuestUser.value = false;
     } catch (e) {
+      _isGuestUser.value = true;
       e.printError();
       rethrow;
+    }
+    finally{
+      update();
     }
   }
 
