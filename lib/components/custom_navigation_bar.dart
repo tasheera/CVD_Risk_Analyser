@@ -111,11 +111,19 @@ class CustomNavigationBar extends StatelessWidget {
               icon: Icons.bar_chart_outlined,
               index: 0,
               buttonOnTap: () {
-                Get.to(
-                  () => ReportScreen(),
-                  transition: Transition.fade,
-                  duration: Duration(milliseconds: 5),
-                );
+                if (isGuestUser) {
+                  Get.to(
+                        () => ReportScreen(),
+                    transition: Transition.fade,
+                    duration: Duration(milliseconds: 5),
+                  );
+                } else {
+                  Get.to(
+                        () => ReportScreen(),
+                    transition: Transition.fade,
+                    duration: Duration(milliseconds: 5),
+                  );
+                }
               },
             ),
             buildNavigationButton(
