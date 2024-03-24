@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cvd_risk_analyser/nonlabdocShow.dart';
+
 
 /**
  * shows Screen for  NON LAB BASE CHART
@@ -9,17 +13,30 @@ class DataScreen extends StatefulWidget {
   _DataScreenState createState() => _DataScreenState();
 }
 
-class _DataScreenState extends State<DataScreen> {
-  // Define variables to store input data
-
-  String age = '';
+String age = '';
   String gender = '';
   String height = '';
   String weight = '';
   String SBPP = '';
   String smoke = '';
   String cvdLevel = '';
-  
+
+ void fetchS(Map<String, dynamic> data) {
+    age = data['age'];
+    gender = data['gender'];
+    height = data['height'];
+    weight = data['weight'];
+    SBPP = data['SBPP'];
+    smoke = data['Smoke'];
+    cvdLevel = data['CVD Level'];
+  }
+
+
+
+class _DataScreenState extends State<DataScreen> {
+  // Define variables to store input data
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +82,7 @@ class _DataScreenState extends State<DataScreen> {
             ),
 
             //height
-            
+
             Row(
               children: [
                 Text(
@@ -95,8 +112,6 @@ class _DataScreenState extends State<DataScreen> {
               ],
             ),
 
-
-
             //Pressure Level
 
             Row(
@@ -113,7 +128,6 @@ class _DataScreenState extends State<DataScreen> {
               ],
             ),
 
-            
             //smoke
             Row(
               children: [
@@ -150,3 +164,58 @@ class _DataScreenState extends State<DataScreen> {
     );
   }
 }
+
+
+
+// Initialize Firebase
+Future<void> initializeFirebase() async {
+  await Firebase.initializeApp();
+}
+
+// Function to fetch data from Firestore
+Future<void> fetchData() async {
+  await initializeFirebase(); // Ensure Firebase is initialized
+
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  // Retrieve lab chart data from Firestore
+  QuerySnapshot labchartSnapshot =
+      await firestore.collection('labchart_data').get();
+  List<QueryDocumentSnapshot> labchartDocuments = labchartSnapshot.docs;
+
+  // Iterate over lab chart documents
+  for (QueryDocumentSnapshot doc in labchartDocuments) {
+    Map<String, dynamic>? data =
+        doc.data() as Map<String, dynamic>?; // Explicit cast
+    if (data != null) {
+      // Pass data to fetch function
+      fetchS(data);
+    }
+  }
+
+  // Retrieve non-lab chart data from Firestore
+  QuerySnapshot nonLabchartSnapshot =
+      await firestore.collection('non_labchart_data').get();
+  List<QueryDocumentSnapshot> nonLabchartDocuments = nonLabchartSnapshot.docs;
+
+  // Iterate over non-lab chart documents
+  for (QueryDocumentSnapshot doc in nonLabchartDocuments) {
+    Map<String, dynamic>? data =
+        doc.data() as Map<String, dynamic>?; // Explicit cast
+    if (data != null) {
+      // Pass data to fetch function
+      fetchS(data);
+    }
+  }
+}
+
+// // Function to process retrieved data
+// void fetchS(Map<String, dynamic> data) {
+//   // Process the data as needed
+//   print('Retrieved data: $data');
+// // }
+
+// void main() async {
+//   // Fetch data from Firestore
+//   await fetchData();
+// }
