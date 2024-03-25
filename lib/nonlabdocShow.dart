@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cvd_risk_analyser/nonlabdocShow.dart';
 
+import 'components/custom_navigation_bar.dart';
+
 
 /**
  * shows Screen for  NON LAB BASE CHART
@@ -41,6 +43,7 @@ class _DataScreenState extends State<DataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomNavigationBar(),
       appBar: AppBar(
         title: Text('Non Lab base chart History'),
       ),
