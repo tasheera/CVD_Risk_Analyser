@@ -119,7 +119,7 @@ class CustomNavigationBar extends StatelessWidget {
                   );
                 } else {
                   Get.to(
-                        () => ReportScreen(),
+                        () => DataScreen(),
                     transition: Transition.fade,
                     duration: Duration(milliseconds: 5),
                   );
