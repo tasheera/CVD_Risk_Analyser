@@ -9,6 +9,7 @@ class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _fadeInAnimation;
+
   @override
   void initState() {
     super.initState();
@@ -21,11 +22,13 @@ class _MyHomePageState extends State<MyHomePage>
     );
     _animationController.forward();
   }
+
   @override
   void dispose() {
     _animationController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,5 +114,65 @@ class _MyHomePageState extends State<MyHomePage>
                     'Focus on Enjoyment',
                     'Emphasize the enjoyment of meals and social aspects of eating, while still being mindful of portion sizes and overall dietary quality.',
                   ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    'Additional Health Tips:',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  buildRecommendationItem(
+                    'Regular Physical Activity',
+                    'Engage in at least 150 minutes of moderate-intensity aerobic exercise or 75 minutes of vigorous-intensity exercise per week. Also, incorporate strength training exercises at least two days a week.',
+                  ),
+                  buildRecommendationItem(
+                    'Stress Management',
+                    'Practice stress-reducing techniques such as meditation, deep breathing exercises, yoga, or engaging in hobbies you enjoy.',
+                  ),
+                  buildRecommendationItem(
+                    'Quit Smoking',
+                    'If you smoke, quitting is one of the most important steps you can take to improve heart health.',
+                  ),
+                  buildRecommendationItem(
+                    'Limit Alcohol Intake',
+                    'If you drink alcohol, do so in moderation. Limit intake to no more than one drink per day for women and two drinks per day for men.',
+                  ),
+                  buildRecommendationItem(
+                    'Regular Health Check-ups',
+                    'Schedule regular check-ups with your healthcare provider to monitor blood pressure, cholesterol levels, and other risk factors for heart disease.',
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
 
+  Widget buildRecommendationItem(String title, String description) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(height: 5.0),
+        Text(
+          description,
+          style: TextStyle(
+            fontSize: 14.0,
+          ),
+        ),
+        SizedBox(height: 15.0),
+      ],
+    );
+  }
 }
