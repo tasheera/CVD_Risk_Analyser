@@ -6,6 +6,8 @@ import 'package:cvd_risk_analyser/screens/report_screen.dart';
 import 'package:cvd_risk_analyser/screens/user_data_input_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:cvd_risk_analyser/nonlabdocShow.dart';
+
 
 class CustomNavigationBar extends StatelessWidget {
   CustomNavigationBar({
