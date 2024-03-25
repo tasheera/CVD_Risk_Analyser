@@ -1,7 +1,10 @@
+import 'package:cvd_risk_analyser/HomePage.dart';
 import 'package:cvd_risk_analyser/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:cvd_risk_analyser/controllers/auth_controller.dart';
+import 'package:get/get.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -138,6 +141,18 @@ void authTest(String email, String password ) async{
       Navigator.of(context).push(MaterialPageRoute(builder:(_){ // move to chart choose screen
          return LoginFormScreen();
          }));
+
+
+                    if(AuthController.authInstance.firebaseUser != null)
+                      {
+                        await AuthController.authInstance.signOut();
+                      }
+                    else
+                      {
+                        Get.offAll(() => HomePage());
+                      }
+         
+         
       _signupCodeController.clear();
       _signupEmailController.clear();
       _signupPasswordController.clear();
