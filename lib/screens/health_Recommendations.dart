@@ -81,5 +81,35 @@ class _MyHomePageState extends State<MyHomePage>
                     'Healthy Cooking Oils',
                     'Use heart-healthy oils like olive oil, avocado oil, and canola oil for cooking and salad dressings. These oils contain monounsaturated fats that can improve cholesterol levels.',
                   ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    'Low-Risk Individuals:',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  buildRecommendationItem(
+                    'Moderate Consumption of Lean Meats',
+                    'Incorporate lean cuts of poultry (skinless chicken, turkey) and occasionally lean cuts of beef or pork into meals.',
+                  ),
+                  buildRecommendationItem(
+                    'Moderate Consumption of Dairy',
+                    'Choose low-fat or fat-free dairy products like skim milk, yogurt, and cheese in moderation.',
+                  ),
+                  buildRecommendationItem(
+                    'Incorporate More Variety',
+                    'Explore a wider range of fruits, vegetables, whole grains, nuts, seeds, and legumes to ensure a diverse nutrient intake.',
+                  ),
+                  buildRecommendationItem(
+                    'Occasional Indulgences',
+                    'Enjoying occasional treats or less healthy foods in moderation is acceptable for individuals at low risk. The key is balance and maintaining overall healthy eating habits.',
+                  ),
+                  buildRecommendationItem(
+                    'Focus on Enjoyment',
+                    'Emphasize the enjoyment of meals and social aspects of eating, while still being mindful of portion sizes and overall dietary quality.',
+                  ),
 
 }
