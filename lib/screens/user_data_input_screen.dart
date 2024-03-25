@@ -1,5 +1,6 @@
 import 'package:cvd_risk_analyser/components/custom_navigation_bar.dart';
 import 'package:cvd_risk_analyser/prediction_data_save_and_retrive_functions.dart';
+import 'package:cvd_risk_analyser/screens/health_Recommendations.dart';
 import 'package:flutter/material.dart';
 import 'input_screen_functions.dart';
 import 'package:http/http.dart' as http;
@@ -71,7 +72,12 @@ class _UserInputScreenState extends State<UserInputScreen> {
               height: iconSize * 0.7, // height of image
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                  // path to move next screen
+                  return MyHomePage();
+                }));
+              },
               child: Image.asset(
                 'assets/data_input_report_icon.png', //image file direct
                 width: iconSize *
